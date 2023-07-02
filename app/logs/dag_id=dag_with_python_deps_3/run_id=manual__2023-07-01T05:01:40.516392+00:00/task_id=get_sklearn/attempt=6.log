@@ -1,0 +1,22 @@
+[2023-07-01T05:11:45.963+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_python_deps_3.get_sklearn manual__2023-07-01T05:01:40.516392+00:00 [queued]>
+[2023-07-01T05:11:45.970+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_python_deps_3.get_sklearn manual__2023-07-01T05:01:40.516392+00:00 [queued]>
+[2023-07-01T05:11:45.970+0000] {taskinstance.py:1308} INFO - Starting attempt 6 of 6
+[2023-07-01T05:11:45.983+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): get_sklearn> on 2023-07-01 05:01:40.516392+00:00
+[2023-07-01T05:11:45.990+0000] {standard_task_runner.py:57} INFO - Started process 5482 to run task
+[2023-07-01T05:11:45.992+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_python_deps_3', 'get_sklearn', 'manual__2023-07-01T05:01:40.516392+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_python_deps.py', '--cfg-path', '/tmp/tmpb1stn3gu']
+[2023-07-01T05:11:45.993+0000] {standard_task_runner.py:85} INFO - Job 167: Subtask get_sklearn
+[2023-07-01T05:11:46.034+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_with_python_deps_3.get_sklearn manual__2023-07-01T05:01:40.516392+00:00 [running]> on host 111d544596aa
+[2023-07-01T05:11:46.116+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='stare' AIRFLOW_CTX_DAG_ID='dag_with_python_deps_3' AIRFLOW_CTX_TASK_ID='get_sklearn' AIRFLOW_CTX_EXECUTION_DATE='2023-07-01T05:01:40.516392+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-01T05:01:40.516392+00:00'
+[2023-07-01T05:11:46.117+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_with_python_deps.py", line 13, in get_sklearn
+    import sklearn
+ModuleNotFoundError: No module named 'sklearn'
+[2023-07-01T05:11:46.123+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=dag_with_python_deps_3, task_id=get_sklearn, execution_date=20230701T050140, start_date=20230701T051145, end_date=20230701T051146
+[2023-07-01T05:11:46.131+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 167 for task get_sklearn (No module named 'sklearn'; 5482)
+[2023-07-01T05:11:46.164+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-01T05:11:46.184+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
