@@ -6102,3 +6102,399 @@ selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chro
 ; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 [2023-07-05T16:42:13.189+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
 [2023-07-05T16:42:13.200+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.487 seconds
+[2023-07-05T16:42:43.952+0000] {processor.py:157} INFO - Started process (PID=566) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:42:43.958+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:42:43.958+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:43.958+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:42:44.442+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:44.441+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:42:44.443+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:42:44.460+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.510 seconds
+[2023-07-05T16:43:15.219+0000] {processor.py:157} INFO - Started process (PID=596) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:15.224+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:43:15.225+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:15.224+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:15.701+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:15.699+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:43:15.701+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:15.717+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.500 seconds
+[2023-07-05T16:43:46.484+0000] {processor.py:157} INFO - Started process (PID=619) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:46.490+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:43:46.490+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:46.490+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:46.964+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:46.962+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:43:46.964+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:43:46.980+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.497 seconds
+[2023-07-05T16:44:17.743+0000] {processor.py:157} INFO - Started process (PID=642) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:17.748+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:44:17.749+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:17.749+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:18.221+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:18.219+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:44:18.221+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:18.234+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.493 seconds
+[2023-07-05T16:44:48.976+0000] {processor.py:157} INFO - Started process (PID=665) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:48.986+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:44:48.987+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:48.987+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:49.458+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:49.456+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:44:49.459+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:44:49.473+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.500 seconds
+[2023-07-05T16:45:20.224+0000] {processor.py:157} INFO - Started process (PID=688) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:20.229+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:45:20.229+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:20.229+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:20.702+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:20.700+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:45:20.703+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:20.721+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.500 seconds
+[2023-07-05T16:45:51.468+0000] {processor.py:157} INFO - Started process (PID=711) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:51.475+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:45:51.475+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:51.475+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:51.993+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:51.992+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:45:51.994+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:45:52.004+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.539 seconds
+[2023-07-05T16:46:22.715+0000] {processor.py:157} INFO - Started process (PID=734) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:22.720+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:46:22.720+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:22.720+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:23.192+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:23.190+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:46:23.192+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:23.204+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.492 seconds
+[2023-07-05T16:46:53.968+0000] {processor.py:157} INFO - Started process (PID=757) to work on /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:53.974+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/dag_scrap_biobio.py for tasks to queue
+[2023-07-05T16:46:53.974+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:53.974+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:54.448+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:54.446+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/dag_scrap_biobio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 115, in run
+    output = json.loads(stdout)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 42, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 96, in driver_location
+    result = self.run(args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/selenium_manager.py", line 118, in run
+    raise WebDriverException(f"Unsuccessful command executed: {command}; {err}")
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_scrap_biobio.py", line 29, in <module>
+    browser = webdriver.Chrome(options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 47, in __init__
+    self.service.path = DriverFinder.get_path(self.service, self.options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/driver_finder.py", line 44, in get_path
+    raise NoSuchDriverException(f"Unable to obtain {service.path} using Selenium Manager; {err}")
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain chromedriver using Selenium Manager; Message: Unsuccessful command executed: /home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --output json; Expecting value: line 1 column 1 (char 0)
+; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+[2023-07-05T16:46:54.448+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_scrap_biobio.py
+[2023-07-05T16:46:54.465+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_scrap_biobio.py took 0.499 seconds

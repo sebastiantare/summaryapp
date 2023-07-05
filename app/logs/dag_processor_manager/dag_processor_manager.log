@@ -52911,3 +52911,105 @@ File Path                                PID  Runtime      # DAGs    # Errors  L
 /opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:41:39
 /opt/airflow/dags/create_tables.py       541  0.00s             1           0  0.07s           2023-07-05T16:41:24
 ================================================================================
+[2023-07-05T16:42:24.804+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.51s           2023-07-05T16:42:13
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:42:09
+/opt/airflow/dags/create_tables.py       564  0.00s             1           0  0.08s           2023-07-05T16:41:54
+================================================================================
+[2023-07-05T16:42:55.062+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.53s           2023-07-05T16:42:44
+/opt/airflow/dags/scrap_data.py                                 1           0  0.08s           2023-07-05T16:42:39
+/opt/airflow/dags/create_tables.py       587  0.00s             1           0  0.08s           2023-07-05T16:42:24
+================================================================================
+[2023-07-05T16:43:25.320+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.52s           2023-07-05T16:43:15
+/opt/airflow/dags/scrap_data.py                                 1           0  0.09s           2023-07-05T16:43:10
+/opt/airflow/dags/create_tables.py       610  0.00s             1           0  0.08s           2023-07-05T16:42:55
+================================================================================
+[2023-07-05T16:43:55.568+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.52s           2023-07-05T16:43:46
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:43:40
+/opt/airflow/dags/create_tables.py       633  0.00s             1           0  0.08s           2023-07-05T16:43:25
+================================================================================
+[2023-07-05T16:44:25.800+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.51s           2023-07-05T16:44:18
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:44:10
+/opt/airflow/dags/create_tables.py       656  0.00s             1           0  0.07s           2023-07-05T16:43:55
+================================================================================
+[2023-07-05T16:44:56.039+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.52s           2023-07-05T16:44:49
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:44:40
+/opt/airflow/dags/create_tables.py       679  0.00s             1           0  0.07s           2023-07-05T16:44:25
+================================================================================
+[2023-07-05T16:45:26.284+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.52s           2023-07-05T16:45:20
+/opt/airflow/dags/scrap_data.py                                 1           0  0.08s           2023-07-05T16:45:11
+/opt/airflow/dags/create_tables.py       702  0.00s             1           0  0.08s           2023-07-05T16:44:56
+================================================================================
+[2023-07-05T16:45:56.517+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.56s           2023-07-05T16:45:52
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:45:41
+/opt/airflow/dags/create_tables.py       725  0.00s             1           0  0.07s           2023-07-05T16:45:26
+================================================================================
+[2023-07-05T16:46:26.751+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.51s           2023-07-05T16:46:23
+/opt/airflow/dags/scrap_data.py                                 1           0  0.07s           2023-07-05T16:46:11
+/opt/airflow/dags/create_tables.py       748  0.00s             1           0  0.07s           2023-07-05T16:45:56
+================================================================================
+[2023-07-05T16:46:48.911+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2023-07-05T16:46:48.913+0000] {manager.py:761} INFO - There are 3 files in /opt/airflow/dags
+[2023-07-05T16:46:56.992+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_scrap_biobio.py                           0           1  0.51s           2023-07-05T16:46:54
+/opt/airflow/dags/scrap_data.py                                 1           0  0.08s           2023-07-05T16:46:41
+/opt/airflow/dags/create_tables.py       771  0.00s             1           0  0.07s           2023-07-05T16:46:26
+================================================================================

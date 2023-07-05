@@ -5808,3 +5808,73 @@
 [2023-07-05T16:41:54.600+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:41:54.600+0000] {dag.py:2726} INFO - Sync 1 DAGs
 [2023-07-05T16:41:54.620+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:41:54.620+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
 [2023-07-05T16:41:54.630+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.070 seconds
+[2023-07-05T16:42:24.806+0000] {processor.py:157} INFO - Started process (PID=564) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:24.817+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:42:24.817+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:24.817+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:24.821+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:24.842+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:24.842+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:42:24.860+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:24.860+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:42:24.872+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.068 seconds
+[2023-07-05T16:42:55.066+0000] {processor.py:157} INFO - Started process (PID=587) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:55.075+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:42:55.075+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:55.075+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:55.079+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:42:55.100+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:55.100+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:42:55.118+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:55.118+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:42:55.130+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.067 seconds
+[2023-07-05T16:43:25.323+0000] {processor.py:157} INFO - Started process (PID=610) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:25.330+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:43:25.330+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:25.330+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:25.334+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:25.355+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:25.354+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:43:25.373+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:25.373+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:43:25.386+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.065 seconds
+[2023-07-05T16:43:55.570+0000] {processor.py:157} INFO - Started process (PID=633) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:55.577+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:43:55.577+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:55.577+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:55.581+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:43:55.602+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:55.602+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:43:55.620+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:55.620+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:43:55.632+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.064 seconds
+[2023-07-05T16:44:25.802+0000] {processor.py:157} INFO - Started process (PID=656) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:25.809+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:44:25.809+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:25.809+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:25.813+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:25.833+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:25.833+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:44:25.851+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:25.851+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:44:25.862+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.062 seconds
+[2023-07-05T16:44:56.042+0000] {processor.py:157} INFO - Started process (PID=679) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:56.049+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:44:56.049+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:56.049+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:56.053+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:44:56.074+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:56.074+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:44:56.092+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:56.092+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:44:56.103+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.064 seconds
+[2023-07-05T16:45:26.286+0000] {processor.py:157} INFO - Started process (PID=702) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:26.292+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:45:26.292+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:26.292+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:26.296+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:26.316+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:26.316+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:45:26.334+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:26.334+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:45:26.347+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.063 seconds
+[2023-07-05T16:45:56.521+0000] {processor.py:157} INFO - Started process (PID=725) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:56.526+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:45:56.527+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:56.527+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:56.531+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:45:56.551+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:56.551+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:45:56.570+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:56.570+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:45:56.582+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.063 seconds
+[2023-07-05T16:46:26.753+0000] {processor.py:157} INFO - Started process (PID=748) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:26.758+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:46:26.759+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:26.759+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:26.763+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:26.783+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:26.783+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:46:26.801+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:26.801+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:46:26.812+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.061 seconds
+[2023-07-05T16:46:56.994+0000] {processor.py:157} INFO - Started process (PID=771) to work on /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:57.002+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/create_tables.py for tasks to queue
+[2023-07-05T16:46:57.003+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:57.003+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:57.007+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_operator_dag']) retrieved from /opt/airflow/dags/create_tables.py
+[2023-07-05T16:46:57.027+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:57.026+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:46:57.044+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:57.044+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_operator_dag to None, run_after=None
+[2023-07-05T16:46:57.056+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/create_tables.py took 0.063 seconds

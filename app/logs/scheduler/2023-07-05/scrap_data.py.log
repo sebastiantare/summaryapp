@@ -6939,3 +6939,73 @@ FileNotFoundError: [Errno 2] No such file or directory: 'requirements.txt'
 [2023-07-05T16:42:09.696+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:09.696+0000] {dag.py:2726} INFO - Sync 1 DAGs
 [2023-07-05T16:42:09.714+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:09.714+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
 [2023-07-05T16:42:09.724+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.061 seconds
+[2023-07-05T16:42:39.920+0000] {processor.py:157} INFO - Started process (PID=565) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:42:39.929+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:42:39.929+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:39.929+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:42:39.933+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:42:39.952+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:39.952+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:42:39.970+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:42:39.970+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:42:39.980+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.062 seconds
+[2023-07-05T16:43:10.168+0000] {processor.py:157} INFO - Started process (PID=588) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:10.173+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:43:10.173+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:10.173+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:10.177+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:10.199+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:10.199+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:43:10.217+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:10.217+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:43:10.228+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.063 seconds
+[2023-07-05T16:43:40.430+0000] {processor.py:157} INFO - Started process (PID=611) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:40.435+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:43:40.435+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:40.435+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:40.439+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:43:40.458+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:40.458+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:43:40.477+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:43:40.477+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:43:40.489+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.062 seconds
+[2023-07-05T16:44:10.666+0000] {processor.py:157} INFO - Started process (PID=634) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:10.673+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:44:10.674+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:10.674+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:10.678+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:10.697+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:10.697+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:44:10.715+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:10.715+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:44:10.726+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.062 seconds
+[2023-07-05T16:44:40.906+0000] {processor.py:157} INFO - Started process (PID=657) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:40.913+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:44:40.913+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:40.913+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:40.917+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:44:40.937+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:40.937+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:44:40.955+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:44:40.955+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:44:40.966+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.062 seconds
+[2023-07-05T16:45:11.147+0000] {processor.py:157} INFO - Started process (PID=680) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:11.158+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:45:11.159+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:11.159+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:11.162+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:11.182+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:11.182+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:45:11.201+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:11.201+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:45:11.212+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.067 seconds
+[2023-07-05T16:45:41.394+0000] {processor.py:157} INFO - Started process (PID=703) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:41.400+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:45:41.400+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:41.400+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:41.404+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:45:41.423+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:41.423+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:45:41.440+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:45:41.440+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:45:41.452+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.060 seconds
+[2023-07-05T16:46:11.621+0000] {processor.py:157} INFO - Started process (PID=726) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:11.626+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:46:11.626+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:11.626+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:11.630+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:11.653+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:11.652+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:46:11.672+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:11.672+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:46:11.683+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.064 seconds
+[2023-07-05T16:46:41.860+0000] {processor.py:157} INFO - Started process (PID=749) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:41.871+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:46:41.872+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:41.872+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:41.875+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:46:41.897+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:41.897+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:46:41.916+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:46:41.915+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:46:41.926+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.069 seconds
+[2023-07-05T16:47:12.093+0000] {processor.py:157} INFO - Started process (PID=772) to work on /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:47:12.099+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/scrap_data.py for tasks to queue
+[2023-07-05T16:47:12.099+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:47:12.099+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:47:12.103+0000] {processor.py:836} INFO - DAG(s) dict_keys(['initiallize_python_scrap_data_dag']) retrieved from /opt/airflow/dags/scrap_data.py
+[2023-07-05T16:47:12.124+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:47:12.124+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2023-07-05T16:47:12.142+0000] {logging_mixin.py:149} INFO - [2023-07-05T16:47:12.142+0000] {dag.py:3490} INFO - Setting next_dagrun for initiallize_python_scrap_data_dag to None, run_after=None
+[2023-07-05T16:47:12.153+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/scrap_data.py took 0.062 seconds
