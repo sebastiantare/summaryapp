@@ -1,0 +1,62 @@
+[2023-07-07T16:28:27.653+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_imports_v8.get_data manual__2023-07-07T16:28:26.782516+00:00 [queued]>
+[2023-07-07T16:28:27.660+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_imports_v8.get_data manual__2023-07-07T16:28:26.782516+00:00 [queued]>
+[2023-07-07T16:28:27.660+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-07-07T16:28:27.670+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): get_data> on 2023-07-07 16:28:26.782516+00:00
+[2023-07-07T16:28:27.674+0000] {standard_task_runner.py:57} INFO - Started process 273 to run task
+[2023-07-07T16:28:27.677+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test_imports_v8', 'get_data', 'manual__2023-07-07T16:28:26.782516+00:00', '--job-id', '81', '--raw', '--subdir', 'DAGS_FOLDER/scrap_data.py', '--cfg-path', '/tmp/tmpc83yxxbq']
+[2023-07-07T16:28:27.678+0000] {standard_task_runner.py:85} INFO - Job 81: Subtask get_data
+[2023-07-07T16:28:27.706+0000] {task_command.py:410} INFO - Running <TaskInstance: test_imports_v8.get_data manual__2023-07-07T16:28:26.782516+00:00 [running]> on host d409bdcb9602
+[2023-07-07T16:28:27.775+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_imports_v8' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2023-07-07T16:28:26.782516+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-07T16:28:26.782516+00:00'
+[2023-07-07T16:28:27.776+0000] {process_utils.py:181} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvgven08q6
+[2023-07-07T16:28:27.785+0000] {process_utils.py:185} INFO - Output:
+[2023-07-07T16:28:28.667+0000] {process_utils.py:189} INFO - created virtual environment CPython3.7.17.final.0-64 in 333ms
+[2023-07-07T16:28:28.667+0000] {process_utils.py:189} INFO -   creator CPython3Posix(dest=/tmp/venvgven08q6, clear=False, no_vcs_ignore=False, global=False)
+[2023-07-07T16:28:28.668+0000] {process_utils.py:189} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2023-07-07T16:28:28.668+0000] {process_utils.py:189} INFO -     added seed packages: pip==23.1.2, setuptools==67.8.0, wheel==0.40.0
+[2023-07-07T16:28:28.668+0000] {process_utils.py:189} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2023-07-07T16:28:28.700+0000] {process_utils.py:181} INFO - Executing cmd: /tmp/venvgven08q6/bin/pip install -r /tmp/venvgven08q6/requirements.txt
+[2023-07-07T16:28:28.708+0000] {process_utils.py:185} INFO - Output:
+[2023-07-07T16:28:29.798+0000] {process_utils.py:189} INFO - Collecting selenium (from -r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:29.830+0000] {process_utils.py:189} INFO -   Using cached selenium-4.10.0-py3-none-any.whl (6.7 MB)
+[2023-07-07T16:28:29.932+0000] {process_utils.py:189} INFO - Collecting urllib3[socks]<3,>=1.26 (from selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:29.935+0000] {process_utils.py:189} INFO -   Using cached urllib3-2.0.3-py3-none-any.whl (123 kB)
+[2023-07-07T16:28:29.984+0000] {process_utils.py:189} INFO - Collecting trio~=0.17 (from selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:29.988+0000] {process_utils.py:189} INFO -   Using cached trio-0.22.1-py3-none-any.whl (399 kB)
+[2023-07-07T16:28:30.034+0000] {process_utils.py:189} INFO - Collecting trio-websocket~=0.9 (from selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.037+0000] {process_utils.py:189} INFO -   Using cached trio_websocket-0.10.3-py3-none-any.whl (17 kB)
+[2023-07-07T16:28:30.091+0000] {process_utils.py:189} INFO - Collecting certifi>=2021.10.8 (from selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.094+0000] {process_utils.py:189} INFO -   Using cached certifi-2023.5.7-py3-none-any.whl (156 kB)
+[2023-07-07T16:28:30.150+0000] {process_utils.py:189} INFO - Collecting attrs>=20.1.0 (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.152+0000] {process_utils.py:189} INFO -   Using cached attrs-23.1.0-py3-none-any.whl (61 kB)
+[2023-07-07T16:28:30.200+0000] {process_utils.py:189} INFO - Collecting sortedcontainers (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.203+0000] {process_utils.py:189} INFO -   Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+[2023-07-07T16:28:30.254+0000] {process_utils.py:189} INFO - Collecting idna (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.257+0000] {process_utils.py:189} INFO -   Using cached idna-3.4-py3-none-any.whl (61 kB)
+[2023-07-07T16:28:30.299+0000] {process_utils.py:189} INFO - Collecting outcome (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.302+0000] {process_utils.py:189} INFO -   Using cached outcome-1.2.0-py2.py3-none-any.whl (9.7 kB)
+[2023-07-07T16:28:30.337+0000] {process_utils.py:189} INFO - Collecting sniffio (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.341+0000] {process_utils.py:189} INFO -   Using cached sniffio-1.3.0-py3-none-any.whl (10 kB)
+[2023-07-07T16:28:30.386+0000] {process_utils.py:189} INFO - Collecting exceptiongroup>=1.0.0rc9 (from trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.397+0000] {process_utils.py:189} INFO -   Using cached exceptiongroup-1.1.2-py3-none-any.whl (14 kB)
+[2023-07-07T16:28:30.440+0000] {process_utils.py:189} INFO - Collecting wsproto>=0.14 (from trio-websocket~=0.9->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.442+0000] {process_utils.py:189} INFO -   Using cached wsproto-1.2.0-py3-none-any.whl (24 kB)
+[2023-07-07T16:28:30.492+0000] {process_utils.py:189} INFO - Collecting pysocks!=1.5.7,<2.0,>=1.5.6 (from urllib3[socks]<3,>=1.26->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.495+0000] {process_utils.py:189} INFO -   Using cached PySocks-1.7.1-py3-none-any.whl (16 kB)
+[2023-07-07T16:28:30.630+0000] {process_utils.py:189} INFO - Collecting importlib-metadata (from attrs>=20.1.0->trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.633+0000] {process_utils.py:189} INFO -   Using cached importlib_metadata-6.7.0-py3-none-any.whl (22 kB)
+[2023-07-07T16:28:30.678+0000] {process_utils.py:189} INFO - Collecting h11<1,>=0.9.0 (from wsproto>=0.14->trio-websocket~=0.9->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.682+0000] {process_utils.py:189} INFO -   Using cached h11-0.14.0-py3-none-any.whl (58 kB)
+[2023-07-07T16:28:30.746+0000] {process_utils.py:189} INFO - Collecting typing-extensions (from h11<1,>=0.9.0->wsproto>=0.14->trio-websocket~=0.9->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.749+0000] {process_utils.py:189} INFO -   Using cached typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+[2023-07-07T16:28:30.824+0000] {process_utils.py:189} INFO - Collecting zipp>=0.5 (from importlib-metadata->attrs>=20.1.0->trio~=0.17->selenium->-r /tmp/venvgven08q6/requirements.txt (line 1))
+[2023-07-07T16:28:30.827+0000] {process_utils.py:189} INFO -   Using cached zipp-3.15.0-py3-none-any.whl (6.8 kB)
+[2023-07-07T16:28:30.991+0000] {process_utils.py:189} INFO - Installing collected packages: sortedcontainers, zipp, urllib3, typing-extensions, sniffio, pysocks, idna, exceptiongroup, certifi, importlib-metadata, h11, wsproto, attrs, outcome, trio, trio-websocket, selenium
+[2023-07-07T16:28:31.980+0000] {process_utils.py:189} INFO - Successfully installed attrs-23.1.0 certifi-2023.5.7 exceptiongroup-1.1.2 h11-0.14.0 idna-3.4 importlib-metadata-6.7.0 outcome-1.2.0 pysocks-1.7.1 selenium-4.10.0 sniffio-1.3.0 sortedcontainers-2.4.0 trio-0.22.1 trio-websocket-0.10.3 typing-extensions-4.7.1 urllib3-2.0.3 wsproto-1.2.0 zipp-3.15.0
+[2023-07-07T16:28:32.196+0000] {process_utils.py:181} INFO - Executing cmd: /tmp/venvgven08q6/bin/python /tmp/venvgven08q6/script.py /tmp/venvgven08q6/script.in /tmp/venvgven08q6/script.out /tmp/venvgven08q6/string_args.txt
+[2023-07-07T16:28:32.207+0000] {process_utils.py:185} INFO - Output:
+[2023-07-07T16:28:32.265+0000] {process_utils.py:189} INFO - ['/tmp/venvgven08q6', '/usr/local/lib/python37.zip', '/usr/local/lib/python3.7', '/usr/local/lib/python3.7/lib-dynload', '/tmp/venvgven08q6/lib/python3.7/site-packages']
+[2023-07-07T16:28:32.265+0000] {process_utils.py:189} INFO - 4.10.0
+[2023-07-07T16:28:32.308+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-07-07T16:28:32.317+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=test_imports_v8, task_id=get_data, execution_date=20230707T162826, start_date=20230707T162827, end_date=20230707T162832
+[2023-07-07T16:28:32.353+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-07T16:28:32.366+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

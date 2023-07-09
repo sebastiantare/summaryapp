@@ -11,25 +11,25 @@ with DAG(
     schedule="@once",
     catchup=False,
 ) as dag:
-    create_news_table = PostgresOperator(
-        task_id="create_news_table",
+    create_article_table = PostgresOperator(
+        task_id="create_article_table",
         postgres_conn_id="conn_postgres_id",
         sql="""
-            CREATE TABLE IF NOT EXISTS news (
-                "hash" TEXT,
-                "title" TEXT,
+            CREATE TABLE IF NOT EXISTS article (
+                "article_hash" TEXT,
+                "article_title" TEXT,
                 "category" TEXT,
-                "date" DATE,
-                "body" TEXT,
+                "publish_date" DATE,
+                "article_body" TEXT,
                 "raw_content" TEXT,
                 "source_entity" TEXT,
-                "link" TEXT,
+                "article_link" TEXT,
 
                 "generated_summary" TEXT,
                 "negative_score" NUMERIC,
                 "importance_score" NUMERIC,
 
-                PRIMARY KEY (hash)
+                PRIMARY KEY (article_hash)
             );""",
     )
 
@@ -37,12 +37,14 @@ with DAG(
         task_id="create_images_table",
         postgres_conn_id="conn_postgres_id",
         sql="""
-            CREATE TABLE IF NOT EXISTS news_image (
-                "hash" TEXT,
+            CREATE TABLE IF NOT EXISTS header_image (
+                "article_hash" TEXT,
                 "image_hash" TEXT,
-                "image" BYTEA,
+                "article_image" BYTEA,
 
                 PRIMARY KEY (image_hash),
-                FOREIGN KEY (hash) REFERENCES news (hash)
+                FOREIGN KEY (article_hash) REFERENCES article (article_hash)
             );""",
     )
+
+    create_article_table >> create_images_table
