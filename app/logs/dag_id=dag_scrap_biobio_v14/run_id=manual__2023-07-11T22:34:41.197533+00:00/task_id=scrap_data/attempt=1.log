@@ -1,0 +1,61 @@
+[2023-07-11T22:34:43.075+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_scrap_biobio_v14.scrap_data manual__2023-07-11T22:34:41.197533+00:00 [queued]>
+[2023-07-11T22:34:43.081+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_scrap_biobio_v14.scrap_data manual__2023-07-11T22:34:41.197533+00:00 [queued]>
+[2023-07-11T22:34:43.081+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-07-11T22:34:43.091+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): scrap_data> on 2023-07-11 22:34:41.197533+00:00
+[2023-07-11T22:34:43.095+0000] {standard_task_runner.py:57} INFO - Started process 620 to run task
+[2023-07-11T22:34:43.097+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_scrap_biobio_v14', 'scrap_data', 'manual__2023-07-11T22:34:41.197533+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dag_scrap_biobio.py', '--cfg-path', '/tmp/tmpmlbxjqx8']
+[2023-07-11T22:34:43.097+0000] {standard_task_runner.py:85} INFO - Job 7: Subtask scrap_data
+[2023-07-11T22:34:43.129+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_scrap_biobio_v14.scrap_data manual__2023-07-11T22:34:41.197533+00:00 [running]> on host d1838cb5df30
+[2023-07-11T22:34:43.186+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_scrap_biobio_v14' AIRFLOW_CTX_TASK_ID='scrap_data' AIRFLOW_CTX_EXECUTION_DATE='2023-07-11T22:34:41.197533+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-11T22:34:41.197533+00:00'
+[2023-07-11T22:34:43.187+0000] {process_utils.py:181} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venv565dlndz --system-site-packages --python=python3.9
+[2023-07-11T22:34:43.197+0000] {process_utils.py:185} INFO - Output:
+[2023-07-11T22:34:44.738+0000] {process_utils.py:189} INFO - created virtual environment CPython3.9.2.final.0-64 in 995ms
+[2023-07-11T22:34:44.739+0000] {process_utils.py:189} INFO -   creator CPython3Posix(dest=/tmp/venv565dlndz, clear=False, no_vcs_ignore=False, global=True)
+[2023-07-11T22:34:44.739+0000] {process_utils.py:189} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/tmp/tmpi14otinq)
+[2023-07-11T22:34:44.739+0000] {process_utils.py:189} INFO -     added seed packages: pip==23.1, setuptools==67.6.1, wheel==0.40.0
+[2023-07-11T22:34:44.739+0000] {process_utils.py:189} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2023-07-11T22:34:44.775+0000] {process_utils.py:181} INFO - Executing cmd: /tmp/venv565dlndz/bin/pip install -r /tmp/venv565dlndz/requirements.txt
+[2023-07-11T22:34:44.785+0000] {process_utils.py:185} INFO - Output:
+[2023-07-11T22:34:45.174+0000] {process_utils.py:189} INFO - Traceback (most recent call last):
+[2023-07-11T22:34:45.174+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/bin/pip", line 5, in <module>
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -     from pip._internal.cli.main import main
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/cli/main.py", line 9, in <module>
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -     from pip._internal.cli.autocompletion import autocomplete
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/cli/autocompletion.py", line 10, in <module>
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -     from pip._internal.cli.main_parser import create_main_parser
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/cli/main_parser.py", line 9, in <module>
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -     from pip._internal.build_env import get_runnable_pip
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/build_env.py", line 19, in <module>
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -     from pip._internal.cli.spinners import open_spinner
+[2023-07-11T22:34:45.175+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/cli/spinners.py", line 9, in <module>
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -     from pip._internal.utils.logging import get_indentation
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/utils/logging.py", line 29, in <module>
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -     from pip._internal.utils.misc import ensure_dir
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/utils/misc.py", line 44, in <module>
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -     from pip._internal.locations import get_major_minor_version
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/locations/__init__.py", line 66, in <module>
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -     from . import _distutils
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -   File "/tmp/venv565dlndz/lib/python3.9/site-packages/pip/_internal/locations/_distutils.py", line 20, in <module>
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO -     from distutils.cmd import Command as DistutilsCommand
+[2023-07-11T22:34:45.176+0000] {process_utils.py:189} INFO - ModuleNotFoundError: No module named 'distutils.cmd'
+[2023-07-11T22:34:45.214+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 220, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 374, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 575, in execute_callable
+    pip_install_options=self.pip_install_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/python_virtualenv.py", line 99, in prepare_virtualenv
+    execute_in_subprocess(pip_cmd)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/process_utils.py", line 170, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/process_utils.py", line 193, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/tmp/venv565dlndz/bin/pip', 'install', '-r', '/tmp/venv565dlndz/requirements.txt']' returned non-zero exit status 1.
+[2023-07-11T22:34:45.263+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=dag_scrap_biobio_v14, task_id=scrap_data, execution_date=20230711T223441, start_date=20230711T223443, end_date=20230711T223445
+[2023-07-11T22:34:45.278+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 7 for task scrap_data (Command '['/tmp/venv565dlndz/bin/pip', 'install', '-r', '/tmp/venv565dlndz/requirements.txt']' returned non-zero exit status 1.; 620)
+[2023-07-11T22:34:45.321+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-11T22:34:45.343+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

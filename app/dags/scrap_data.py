@@ -10,7 +10,7 @@ import logging
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 log = logging.getLogger(__name__)
-DAG_ID = "test_imports_v10"
+DAG_ID = "test_imports_v11"
 
 with DAG(
     dag_id=DAG_ID,
@@ -18,15 +18,18 @@ with DAG(
     schedule="@once",
     catchup=False,
 ) as dag:
-    @task.virtualenv(
-        task_id="get_data", requirements=["selenium"], system_site_packages=False
+    @task(
+        task_id="get_data",
     )
     def get_data():
         import sys
+        print(sys.executable)
         print(sys.path)
         import selenium
         print(selenium.__version__)
         import pandas as pd
         print(pd.__version__)
+        import pyspark
+        print(pyspark.__version__)
 
     data_get = get_data()

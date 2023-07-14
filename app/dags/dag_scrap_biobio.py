@@ -11,9 +11,10 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 3) insert news data
 """
 
-DAG_ID = "dag_scrap_biobio_v12"
+DAG_ID = "dag_scrap_biobio_v17"
 
-# Launch Chrome browser in headless mode
+PATH_TO_PYTHON_BINARY = ''
+POSTRES_CONN_ID = 'conn_postgres_id'
 
 @dag(
     dag_id=DAG_ID,
@@ -26,7 +27,7 @@ def ScrapAndStoreData():
 
     def executeQuery(query):
         try:
-            postgres_hook = PostgresHook(postgres_conn_id="conn_postgres_id")
+            postgres_hook = PostgresHook(postgres_conn_id=POSTRES_CONN_ID)
             conn = postgres_hook.get_conn()
             cur = conn.cursor()
             cur.execute(query)
@@ -93,11 +94,7 @@ def ScrapAndStoreData():
                 {{ params.link}},
             );"""
 
-
-
-    @task.virtualenv(
-        task_id="scrap_data", requirements=["selenium", "dateparser"], system_site_packages=False   
-    )
+    @task.external_python(task_id="scrap_data", python=PATH_TO_PYTHON_BINARY)
     def scrapData():
         #import requests
         import dateparser
@@ -106,9 +103,14 @@ def ScrapAndStoreData():
         #from bs4 import BeautifulSoup
         import hashlib
         import time
+        import pandas as pd
         from selenium import webdriver
         from selenium.webdriver.common.by import By
         from selenium.webdriver.support.ui import WebDriverWait
+
+        def writeToDB(df, tname):
+            postgres_hook = PostgresHook(postgres_conn_id=POSTRES_CONN_ID)
+            df.to_sql(tname, postgres_hook.get_sqlalchemy_engine(), if_exists='replace', chunksize=1000)
 
         def hash_text(text):
             sha256_hash = hashlib.sha256()
@@ -162,11 +164,14 @@ def ScrapAndStoreData():
                 # Get last fetched post datetime
                 date_A = dateparser.parse(str(fetch_elements[len(fetch_elements)-1].find_element(By.CLASS_NAME, 'article-date-hour').text))
 
+                articles = []
+
+                df = None
+
                 if (date_A <= date_B):
                     print("Loading data...")
                     full_elements = elements + fetch_elements
                     for elem in full_elements:
-                        print('INSEPECTING ELEMENT')
                         # title
                         title = str(elem.find_element(By.CLASS_NAME, 'article-title').text)
                         # link
@@ -177,12 +182,15 @@ def ScrapAndStoreData():
                         # visit link and get news body text
                         #article_data = getNewsInfo(str(elem.find_element(By.TAG_NAME, 'a').get_attribute('href')))
                         article_data = {}
-                        article_data["hash"] = hash_text(link)
-                        article_data["title"] = title
-                        article_data["link"] = link
+                        article_data["article_hash"] = hash_text(link)
+                        article_data["article_title"] = title
+                        article_data["article_link"] = link
                         article_data["category"] = "Nacional"
-                        article_data["entity"] = "biobiochile.cl"
+                        article_data["source_entity"] = "biobiochile.cl"
+                        articles.append(article_data)
+                    df = pd.DataFrame(full_elements)
             browser.close()
+        return df
 
     """
                 def getNewsInfo(link_href):
