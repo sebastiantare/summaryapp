@@ -1,2 +1,0 @@
-[2023-07-10T17:24:11.176+0000] {taskinstance.py:1097} INFO - Dependencies not met for <TaskInstance: bash_dag_test.path_test manual__2023-07-10T17:24:10.017201+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0), upstream_task_ids={'java_home_test'}
-[2023-07-10T17:24:11.177+0000] {local_task_job_runner.py:154} INFO - Task is not able to be run
