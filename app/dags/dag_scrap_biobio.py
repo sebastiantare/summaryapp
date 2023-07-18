@@ -12,7 +12,7 @@ from airflow.operators.bash_operator import BashOperator
 3) insert news data
 """
 
-DAG_ID = "dag_scrap_biobio_v20"
+DAG_ID = "dag_scrap_biobio_v1.0"
 
 PATH_TO_PYTHON_BINARY = ''
 POSTRES_CONN_ID = 'conn_postgres_id'
@@ -20,7 +20,7 @@ DATA_JSON_PATH = '/opt/airflow/to_postgres.json'
 
 @dag(
     dag_id=DAG_ID,
-    schedule_interval="0 0 * * *",
+    schedule_interval="@hourly",
     start_date=datetime(2023, 1, 1),
     catchup=False,
     dagrun_timeout=timedelta(minutes=10),
