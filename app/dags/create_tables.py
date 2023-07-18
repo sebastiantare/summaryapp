@@ -19,7 +19,7 @@ with DAG(
                 "article_hash" TEXT,
                 "article_title" TEXT,
                 "category" TEXT,
-                "publish_date" DATE,
+                "publish_date" TIMESTAMP,
                 "article_body" TEXT,
                 "raw_content" TEXT,
                 "source_entity" TEXT,
