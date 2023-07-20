@@ -246,7 +246,7 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2')
+                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
@@ -262,7 +262,7 @@ def ScrapAndStoreData():
                                 "publish_date": str(post_date),
                                 "raw_content": str(element_post.get_property('innerHTML'))
                             }
-                        elif 'especial' in article['article_link']:
+                        elif '/especial/' in article['article_link']:
                             """
                             ###################################################################
                                 A different format for the article of type "nota"
@@ -309,7 +309,7 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2')
+                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
@@ -364,7 +364,7 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element.find_elements(By.CLASS_NAME, f'banners-contenido-nota-{id_post} > p,h2')
+                            elements = element.find_elements(By.CLASS_NAME, f'banners-contenido-nota-{id_post} > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
