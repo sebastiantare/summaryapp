@@ -12,7 +12,7 @@ from airflow.operators.bash_operator import BashOperator
 3) insert news data
 """
 
-DAG_ID = "dag_scrap_biobio_v1.0"
+DAG_ID = "dag_scrap_biobio_v1.1"
 
 PATH_TO_PYTHON_BINARY = ''
 POSTRES_CONN_ID = 'conn_postgres_id'
@@ -23,7 +23,7 @@ DATA_JSON_PATH = '/opt/airflow/to_postgres.json'
     schedule_interval="@hourly",
     start_date=datetime(2023, 1, 1),
     catchup=False,
-    dagrun_timeout=timedelta(minutes=10),
+    dagrun_timeout=timedelta(minutes=20)
 )
 def ScrapAndStoreData():
     postgres_hook = PostgresHook(postgres_conn_id=POSTRES_CONN_ID)
@@ -100,6 +100,10 @@ def ScrapAndStoreData():
         last_date = last_date.replace(tzinfo=None)
         print('Last Article Date:', last_date)
 
+        now_date = datetime.now()
+        if (now_date - last_date) > timedelta(hours=24):
+            last_date = now_date - timedelta(hours=24)
+
         def hash_text(text):
             sha256_hash = hashlib.sha256()
             sha256_hash.update(text.encode('utf-8'))
@@ -130,13 +134,14 @@ def ScrapAndStoreData():
                 upper_date = datetime.now()
 
                 while(upper_date > last_date):
+                    print("Upper", upper_date, "Last", last_date)
                     # Execute fetch/click function
                     browser.execute_script("arguments[0].click();", button)   
                     print("4) CLICK OK") 
 
                     # Wait to load
-                    time.sleep(3)
-                    WebDriverWait(browser, 100).until(is_ready)
+                    time.sleep(1)
+                    WebDriverWait(browser, 30).until(is_ready)
 
                     # Search news
                     elements = browser.find_elements(By.XPATH, "/html/body/main/div/section/div[2]/div[2]/div/article")
@@ -161,6 +166,7 @@ def ScrapAndStoreData():
                         date_post = dateparser.parse(str(elem.find_element(By.CLASS_NAME, 'article-date-hour').text))
                         if (date_post <= last_date):
                             # Last date post reached, all the rest are already stored
+                            print("Last Post Reached:", date_post, ", last date:", last_date)
                             break
                         # title
                         title = str(elem.find_element(By.CLASS_NAME, 'article-title').text)
@@ -173,12 +179,16 @@ def ScrapAndStoreData():
                         article_data["article_hash"] = hash_text(link)
                         article_data["article_title"] = title
                         article_data["article_link"] = link
+                        article_data["publish_date"] = str(date_post)
                         article_data["category"] = "Nacional"
                         article_data["source_entity"] = "biobiochile.cl"
                         articles.append(article_data)
                     print('Data into DataFrame')
                     df = pd.DataFrame(articles)
-                    print(df.head())
+                    print(df['article_title'])
+                    # Limite de requests
+                    if (len(df) >= 200):
+                        break
                 browser.close()
             return df
 
@@ -195,8 +205,8 @@ def ScrapAndStoreData():
                         #browser2_links = webdriver.Chrome(options=options)
                         browser_links.get(article['article_link'])
                         print('Access', article['article_link'])
-                        time.sleep(3)
-                        WebDriverWait(browser_links, 100).until(is_ready)
+                        time.sleep(1)
+                        WebDriverWait(browser_links, 30).until(is_ready)
                         element_post = None
 
                         if 'aqui-tierra' in article['article_link']:
@@ -208,7 +218,7 @@ def ScrapAndStoreData():
                                 element_post = browser_links.find_element(By.CLASS_NAME, 'nota-y-mas-leidos')
                             except Exception as e:
                                 print('Error Aqui-tierra', e)
-                                break
+                                continue
 
                             # Biobio has different class for every post with its ID
                             #id_post = str(element_post.get_property('id')).split('-')[1]
@@ -232,14 +242,6 @@ def ScrapAndStoreData():
                                 pass
                             print('HEADER', str(post_header.text))
 
-                            # Date
-                            try:
-                                post_date = dateparser.parse(str(element_post.find_element(By.CSS_SELECTOR, '.autorcitos > p:nth-child(3)').text).replace('Publicado a las ', ''))
-                                print('DATE', post_date)
-                            except:
-                                print('ERROR PARSING DATE', str(element_post.find_element(By.CSS_SELECTOR, '.autorcitos > p:nth-child(3)').text))
-                                continue
-
                             # print(post_header.text)
                             # with open(f'image_{id_post}', 'wb') as file:
                             #    file.write(post_image.screenshot_as_png)
@@ -259,7 +261,6 @@ def ScrapAndStoreData():
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
-                                "publish_date": str(post_date),
                                 "raw_content": str(element_post.get_property('innerHTML'))
                             }
                         elif '/especial/' in article['article_link']:
@@ -270,8 +271,12 @@ def ScrapAndStoreData():
                             try:
                                 element_post = browser_links.find_element(By.CLASS_NAME, 'nota-y-mas-leidos')
                             except Exception as e:
+                                try:
+                                    element_post = browser_links.find_element(By.CLASS_NAME, 'nota')
+                                except Exception as e:
+                                    print('Error Nota', e)
+                                    continue
                                 print('Error Nota', e)
-                                break
 
                             # Biobio has different class for every post with its ID
                             #id_post = str(element_post.get_property('id')).split('-')[1]
@@ -295,14 +300,6 @@ def ScrapAndStoreData():
                                 pass
                             print('HEADER', str(post_header.text))
 
-                            # Date
-                            try:
-                                post_date = dateparser.parse(str(element_post.find_element(By.CLASS_NAME, 'fecha').text))
-                                print('DATE', post_date)
-                            except:
-                                print('ERROR PARSING DATE', str(element_post.find_element(By.CLASS_NAME, 'fecha').text))
-                                continue
-
                             # print(post_header.text)
                             # with open(f'image_{id_post}', 'wb') as file:
                             #    file.write(post_image.screenshot_as_png)
@@ -322,7 +319,6 @@ def ScrapAndStoreData():
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
-                                "publish_date": str(post_date),
                                 "raw_content": str(element_post.get_property('innerHTML'))
                             }
 
@@ -339,7 +335,7 @@ def ScrapAndStoreData():
                             print('POST ID', id_post)
                             XPATH_article = f'//*[@id="post-{id_post}"]'
                             element = browser_links.find_element(By.XPATH, XPATH_article)
-                            print('ELEM ', element)
+                            #print('ELEM ', element)
 
                             # Header image
                             #post_image = element.find_element(By.CLASS_NAME, 'post-image')
@@ -353,10 +349,6 @@ def ScrapAndStoreData():
                             except:
                                 pass
                             print('HEADER', str(post_header.text))
-
-                            # Date
-                            post_date = dateparser.parse(str(element.find_element(By.CLASS_NAME, 'post-date').text))
-                            print('DATE', post_date)
 
                             # print(post_header.text)
                             # with open(f'image_{id_post}', 'wb') as file:
@@ -377,7 +369,6 @@ def ScrapAndStoreData():
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
-                                "publish_date": str(post_date),
                                 "raw_content": str(element_post.get_property('innerHTML'))
                             }
                         articles.append(article_data)
@@ -416,6 +407,12 @@ def ScrapAndStoreData():
     @task
     def finalizeTask():
         print(DAG_ID, 'finishing...')
+
+    """
+    @TODO
+    Add "Capture Date" to table
+    Check for null bodies every 3 days and re-capture them.
+    """
 
     initializeTask() >> getLastArticleDate() >> completeScrapData() >> writeToDB() >> finalizeTask()
 
