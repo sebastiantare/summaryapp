@@ -29,7 +29,5 @@ with DAG(
         print(selenium.__version__)
         import pandas as pd
         print(pd.__version__)
-        import pyspark
-        print(pyspark.__version__)
 
     data_get = get_data()

@@ -1,3 +1,8 @@
+sudo docker ps
+
+sudo docker start 
+sudo docker stop 
+
 sudo docker exec -it <id> bash
 
 sudo docker compose down -v

@@ -4,4 +4,3 @@ lxml==4.9.2
 pandas
 dateparser
 selenium
-openai
