@@ -1,6 +1,7 @@
 import os
 from airflow import DAG
 from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.operators.bash_operator import BashOperator
 from datetime import datetime
 
 DAG_ID = "postgres_operator_dag"
@@ -11,6 +12,7 @@ with DAG(
     schedule="@once",
     catchup=False,
 ) as dag:
+    
     create_article_table = PostgresOperator(
         task_id="create_article_table",
         postgres_conn_id="conn_postgres_id",
