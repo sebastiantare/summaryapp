@@ -18,6 +18,7 @@ PATH_TO_PYTHON_BINARY = ''
 POSTRES_CONN_ID = 'conn_postgres_id'
 DATA_JSON_PATH = '/opt/airflow/to_postgres.json'
 
+
 @dag(
     dag_id=DAG_ID,
     schedule_interval="@hourly",
@@ -57,17 +58,18 @@ def ScrapAndStoreData():
         try:
             df = pd.read_json(DATA_JSON_PATH)
             print(df.head())
-            df.to_sql('article', postgres_hook.get_sqlalchemy_engine(), if_exists='append', chunksize=1000, index=False)
+            df.to_sql('article', postgres_hook.get_sqlalchemy_engine(),
+                      if_exists='append', chunksize=1000, index=False)
         except Exception as e:
             print('Error reading file, or is empty', e)
             return
-        
 
     @task
     def getLastArticleDate(**kwargs):
         ti = kwargs["ti"]
 
-        data = executeQuery('SELECT publish_date FROM article ORDER BY publish_date desc limit 1;')
+        data = executeQuery(
+            'SELECT publish_date FROM article ORDER BY publish_date desc limit 1;')
 
         print('Last Publish Date: ', data)
 
@@ -86,8 +88,8 @@ def ScrapAndStoreData():
     def completeScrapData(**kwargs):
         import dateparser
         from datetime import datetime, timedelta
-        #import pandas as pd
-        #from bs4 import BeautifulSoup
+        # import pandas as pd
+        # from bs4 import BeautifulSoup
         import hashlib
         import time
         import pandas as pd
@@ -96,7 +98,8 @@ def ScrapAndStoreData():
         from selenium.webdriver.support.ui import WebDriverWait
 
         ti = kwargs["ti"]
-        last_date = dateparser.parse(str(ti.xcom_pull(task_ids="getLastArticleDate", key="last_date")))
+        last_date = dateparser.parse(
+            str(ti.xcom_pull(task_ids="getLastArticleDate", key="last_date")))
         last_date = last_date.replace(tzinfo=None)
         print('Last Article Date:', last_date)
 
@@ -126,33 +129,37 @@ def ScrapAndStoreData():
             with webdriver.Remote(f'{remote_webdriver}:4444/wd/hub', options=options) as browser:
                 print("1) BROWSER OK")
                 # Load web page
-                browser.get("https://www.biobiochile.cl/lista/categorias/nacional")
+                browser.get(
+                    "https://www.biobiochile.cl/lista/categorias/nacional")
                 print("2) GET OK")
                 button = browser.find_element(By.CLASS_NAME, 'fetch-btn')
                 print("3) BUTTON OK")
 
                 upper_date = datetime.now()
 
-                while(upper_date > last_date):
+                while (upper_date > last_date):
                     print("Upper", upper_date, "Last", last_date)
                     # Execute fetch/click function
-                    browser.execute_script("arguments[0].click();", button)   
-                    print("4) CLICK OK") 
+                    browser.execute_script("arguments[0].click();", button)
+                    print("4) CLICK OK")
 
                     # Wait to load
                     time.sleep(1)
                     WebDriverWait(browser, 30).until(is_ready)
 
                     # Search news
-                    elements = browser.find_elements(By.XPATH, "/html/body/main/div/section/div[2]/div[2]/div/article")
-                    print("5) FETCH OK") 
+                    elements = browser.find_elements(
+                        By.XPATH, "/html/body/main/div/section/div[2]/div[2]/div/article")
+                    print("5) FETCH OK")
 
                     # Fetched items are loaded in a different list
-                    fetch_elements = browser.find_elements(By.XPATH, "/html/body/main/div/section/div[2]/div[2]/div/div/div[1]/div")
-                    print("6) FETCH 2 OK") 
-                    
+                    fetch_elements = browser.find_elements(
+                        By.XPATH, "/html/body/main/div/section/div[2]/div[2]/div/div/div[1]/div")
+                    print("6) FETCH 2 OK")
+
                     # Get last fetched post datetime
-                    lower_batch_date = dateparser.parse(str(fetch_elements[len(fetch_elements)-1].find_element(By.CLASS_NAME, 'article-date-hour').text))
+                    lower_batch_date = dateparser.parse(str(fetch_elements[len(
+                        fetch_elements)-1].find_element(By.CLASS_NAME, 'article-date-hour').text))
 
                     upper_date = lower_batch_date
 
@@ -163,18 +170,22 @@ def ScrapAndStoreData():
                     print("Loading data...")
                     full_elements = elements + fetch_elements
                     for elem in full_elements:
-                        date_post = dateparser.parse(str(elem.find_element(By.CLASS_NAME, 'article-date-hour').text))
+                        date_post = dateparser.parse(
+                            str(elem.find_element(By.CLASS_NAME, 'article-date-hour').text))
                         if (date_post <= last_date):
                             # Last date post reached, all the rest are already stored
-                            print("Last Post Reached:", date_post, ", last date:", last_date)
+                            print("Last Post Reached:", date_post,
+                                  ", last date:", last_date)
                             break
                         # title
-                        title = str(elem.find_element(By.CLASS_NAME, 'article-title').text)
+                        title = str(elem.find_element(
+                            By.CLASS_NAME, 'article-title').text)
                         # link
-                        link = str(elem.find_elements(By.TAG_NAME, 'a')[0].get_attribute('href'))
+                        link = str(elem.find_elements(By.TAG_NAME, 'a')[
+                                   0].get_attribute('href'))
                         # date
                         # visit link and get news body text
-                        #article_data = getNewsInfo(str(elem.find_element(By.TAG_NAME, 'a').get_attribute('href')))
+                        # article_data = getNewsInfo(str(elem.find_element(By.TAG_NAME, 'a').get_attribute('href')))
                         article_data = {}
                         article_data["article_hash"] = hash_text(link)
                         article_data["article_title"] = title
@@ -202,7 +213,7 @@ def ScrapAndStoreData():
             with webdriver.Remote(f'{remote_webdriver}:4444/wd/hub', options=options) as browser_links:
                 for index, article in df.iterrows():
                     try:
-                        #browser2_links = webdriver.Chrome(options=options)
+                        # browser2_links = webdriver.Chrome(options=options)
                         browser_links.get(article['article_link'])
                         print('Access', article['article_link'])
                         time.sleep(1)
@@ -215,28 +226,30 @@ def ScrapAndStoreData():
                                 A different format for the article of type "aqui-tierra"
                             """
                             try:
-                                element_post = browser_links.find_element(By.CLASS_NAME, 'nota-y-mas-leidos')
+                                element_post = browser_links.find_element(
+                                    By.CLASS_NAME, 'nota-y-mas-leidos')
                             except Exception as e:
                                 print('Error Aqui-tierra', e)
                                 continue
 
                             # Biobio has different class for every post with its ID
-                            #id_post = str(element_post.get_property('id')).split('-')[1]
+                            # id_post = str(element_post.get_property('id')).split('-')[1]
 
-                            #print('POST ID', id_post)
-                            #XPATH_article = f'//*[@id="post-{id_post}"]'
-                            #element = browser_links.find_element(By.XPATH, XPATH_article)
-                            #print('ELEM ', element)
+                            # print('POST ID', id_post)
+                            # XPATH_article = f'//*[@id="post-{id_post}"]'
+                            # element = browser_links.find_element(By.XPATH, XPATH_article)
+                            # print('ELEM ', element)
 
                             # Header image
-                            #post_image = element.find_element(By.CLASS_NAME, 'post-image')
-                            #print('IMG')
+                            # post_image = element.find_element(By.CLASS_NAME, 'post-image')
+                            # print('IMG')
 
                             # Biobio has a header with part of the text separated of the rest
                             post_header = Generic()
                             setattr(post_header, 'text', "")
                             try:
-                                post_header = element_post.find_element(By.CLASS_NAME, 'extracto-nota')
+                                post_header = element_post.find_element(
+                                    By.CLASS_NAME, 'extracto-nota')
                             except:
                                 # Sometimes it's missing
                                 pass
@@ -248,7 +261,8 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
+                            elements = element_post.find_elements(
+                                By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
@@ -256,8 +270,8 @@ def ScrapAndStoreData():
 
                             print('Elements: ', len(elements))
 
-                            #"post_image": post_image.screenshot_as_png,
-                            #"id_post": str(id_post),
+                            # "post_image": post_image.screenshot_as_png,
+                            # "id_post": str(id_post),
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
@@ -269,32 +283,35 @@ def ScrapAndStoreData():
                                 A different format for the article of type "nota"
                             """
                             try:
-                                element_post = browser_links.find_element(By.CLASS_NAME, 'nota-y-mas-leidos')
+                                element_post = browser_links.find_element(
+                                    By.CLASS_NAME, 'nota-y-mas-leidos')
                             except Exception as e:
                                 try:
-                                    element_post = browser_links.find_element(By.CLASS_NAME, 'nota')
+                                    element_post = browser_links.find_element(
+                                        By.CLASS_NAME, 'nota')
                                 except Exception as e:
                                     print('Error Nota', e)
                                     continue
                                 print('Error Nota', e)
 
                             # Biobio has different class for every post with its ID
-                            #id_post = str(element_post.get_property('id')).split('-')[1]
+                            # id_post = str(element_post.get_property('id')).split('-')[1]
 
-                            #print('POST ID', id_post)
-                            #XPATH_article = f'//*[@id="post-{id_post}"]'
-                            #element = browser_links.find_element(By.XPATH, XPATH_article)
-                            #print('ELEM ', element)
+                            # print('POST ID', id_post)
+                            # XPATH_article = f'//*[@id="post-{id_post}"]'
+                            # element = browser_links.find_element(By.XPATH, XPATH_article)
+                            # print('ELEM ', element)
 
                             # Header image
-                            #post_image = element.find_element(By.CLASS_NAME, 'post-image')
-                            #print('IMG')
+                            # post_image = element.find_element(By.CLASS_NAME, 'post-image')
+                            # print('IMG')
 
                             # Biobio has a header with part of the text separated of the rest
                             post_header = Generic()
                             setattr(post_header, 'text', "")
                             try:
-                                post_header = element_post.find_element(By.CLASS_NAME, 'extracto-nota')
+                                post_header = element_post.find_element(
+                                    By.CLASS_NAME, 'extracto-nota')
                             except:
                                 # Sometimes it's missing
                                 pass
@@ -306,7 +323,8 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element_post.find_elements(By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
+                            elements = element_post.find_elements(
+                                By.CLASS_NAME, 'banners-contenido-nota > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
@@ -314,8 +332,8 @@ def ScrapAndStoreData():
 
                             print('Elements: ', len(elements))
 
-                            #"post_image": post_image.screenshot_as_png,
-                            #"id_post": str(id_post),
+                            # "post_image": post_image.screenshot_as_png,
+                            # "id_post": str(id_post),
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
@@ -327,25 +345,29 @@ def ScrapAndStoreData():
                             ###################################################################
                                 NORMAL ARTICLE FORMAT
                             """
-                            element_post = browser_links.find_element(By.CLASS_NAME, 'post')
+                            element_post = browser_links.find_element(
+                                By.CLASS_NAME, 'post')
 
                             # Biobio has different class for every post with its ID
-                            id_post = str(element_post.get_property('id')).split('-')[1]
+                            id_post = str(
+                                element_post.get_property('id')).split('-')[1]
 
                             print('POST ID', id_post)
                             XPATH_article = f'//*[@id="post-{id_post}"]'
-                            element = browser_links.find_element(By.XPATH, XPATH_article)
-                            #print('ELEM ', element)
+                            element = browser_links.find_element(
+                                By.XPATH, XPATH_article)
+                            # print('ELEM ', element)
 
                             # Header image
-                            #post_image = element.find_element(By.CLASS_NAME, 'post-image')
-                            #print('IMG')
+                            # post_image = element.find_element(By.CLASS_NAME, 'post-image')
+                            # print('IMG')
 
                             # Biobio has a header with part of the text separated of the rest
                             post_header = Generic()
                             setattr(post_header, 'text', "")
                             try:
-                                post_header = element.find_element(By.CLASS_NAME, 'post-excerpt')
+                                post_header = element.find_element(
+                                    By.CLASS_NAME, 'post-excerpt')
                             except:
                                 pass
                             print('HEADER', str(post_header.text))
@@ -356,7 +378,8 @@ def ScrapAndStoreData():
 
                             # Get the rest of the body text
                             body_text = str(post_header.text)
-                            elements = element.find_elements(By.CLASS_NAME, f'banners-contenido-nota-{id_post} > p,h2,blockquote')
+                            elements = element.find_elements(
+                                By.CLASS_NAME, f'banners-contenido-nota-{id_post} > p,h2,blockquote')
 
                             # Make body
                             for e in elements:
@@ -364,8 +387,8 @@ def ScrapAndStoreData():
 
                             print('Elements: ', len(elements))
 
-                            #"post_image": post_image.screenshot_as_png,
-                            #"id_post": str(id_post),
+                            # "post_image": post_image.screenshot_as_png,
+                            # "id_post": str(id_post),
                             article_data = {
                                 "article_hash": article['article_hash'],
                                 "article_body": str(body_text),
@@ -385,14 +408,14 @@ def ScrapAndStoreData():
             if len(articles) == 0:
                 return None
             return pd.merge(df, new_df, how='left', on='article_hash')
-        
+
         data = scrapData()
         data = scrapDataSecondPhase(data)
-        
+
         if data is None:
             return None
 
-        #writeToDB(data, 'article')
+        # writeToDB(data, 'article')
         # Save JSON data to a file
         with open(DATA_JSON_PATH, 'w') as json_file:
             json_data = data.to_json(orient='records')
@@ -414,6 +437,8 @@ def ScrapAndStoreData():
     Check for null bodies every 3 days and re-capture them.
     """
 
-    initializeTask() >> getLastArticleDate() >> completeScrapData() >> writeToDB() >> finalizeTask()
+    initializeTask() >> getLastArticleDate(
+    ) >> completeScrapData() >> writeToDB() >> finalizeTask()
+
 
 ScrapAndStoreData()

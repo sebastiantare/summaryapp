@@ -1,0 +1,713 @@
+Processing... https://www.biobiochile.cl/lista/categorias/economia
+From Sat Jun 15 2024 23:51:11 GMT-0400 (Chile Standard Time) to Sat Jun 15 2024 11:02:00 GMT-0400 (Chile Standard Time)
+File uploaded successfully. https://starebucket.s3.sa-east-1.amazonaws.com/sc_biobiochile-1718509872481.png
+Uploaded to S3 sc_biobiochile-1718509872481.png
+Begin scrape
+[
+  {
+    title: 'Chileno José Luis Daza asumirá Secretaría de Economía en Argentina tras renuncia de Joaquín Cotanni',
+    link: 'https://www.biobiochile.cl/noticias/internacional/america-latina/2024/06/14/chileno-jose-luis-daza-asumira-secretaria-de-economia-en-argentina-tras-renuncia-de-joaquin-cotanni.shtml',
+    date: '',
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/chileno-jose-luis-daza-asumira-secretaria-de-economia-en-argentina-tras-renuncia-de-joaquin-cotanni-750x400.jpg',
+    raw_content: '<article class="article main-article main-article-horizontal ">\n' +
+      '                        <div class="article-text-container">\n' +
+      '                            <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2024/06/14/chileno-jose-luis-daza-asumira-secretaria-de-economia-en-argentina-tras-renuncia-de-joaquin-cotanni.shtml">\n' +
+      '                                <h2 class="article-title">\n' +
+      '                                    Chileno José Luis Daza asumirá Secretaría de Economía en Argentina tras renuncia de Joaquín Cotanni                                </h2>\n' +
+      '                            </a>\n' +
+      '                                                        <div class="related-articles">\n' +
+      '                                 \n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2024/06/13/senado-argentino-aprueba-en-general-la-ley-bases-impulsada-por-milei-en-medio-de-violentas-protestas.shtml">\n' +
+      '                                    <article class="article">\n' +
+      '                                        <h2 class="article-title not-live">Senado argentino aprueba en general la Ley Bases impulsada por Milei en medio de violentas protestas</h2>\n' +
+      '                                    </article>\n' +
+      '                                </a>\n' +
+      '                                 \n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/la-inflacion-en-argentina-se-situa-en-2764-interanual-en-mayo-el-ipc-bajo-de-los-dos-digitos.shtml">\n' +
+      '                                    <article class="article">\n' +
+      '                                        <h2 class="article-title not-live">La inflación en Argentina se sitúa en 276,4% interanual y en mayo el IPC bajó de los dos dígitos</h2>\n' +
+      '                                    </article>\n' +
+      '                                </a>\n' +
+      '                                                            </div>\n' +
+      '                                                    </div>\n' +
+      '                        <a href="https://www.biobiochile.cl/noticias/internacional/america-latina/2024/06/14/chileno-jose-luis-daza-asumira-secretaria-de-economia-en-argentina-tras-renuncia-de-joaquin-cotanni.shtml">\n' +
+      '                            <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/chileno-jose-luis-daza-asumira-secretaria-de-economia-en-argentina-tras-renuncia-de-joaquin-cotanni-750x400.jpg)">\n' +
+      '                            </div>\n' +
+      '                        </a>\n' +
+      '                    </article>',
+    hash_id: 'fc27276b8feec1cc16beed6cd7cca2e2',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Estados Unidos anuncia 1.500 millones de dólares en ayuda a Ucrania',
+    link: 'https://www.biobiochile.cl/noticias/internacional/eeuu/2024/06/15/estados-unidos-anuncia-1-500-millones-de-dolares-en-ayuda-a-ucrania.shtml',
+    date: Moment<2024-06-15T11:02:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/estados-unidos-anuncia-1-500-millones-de-dolares-en-ayuda-a-ucrania-750x400.png',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/internacional/eeuu/2024/06/15/estados-unidos-anuncia-1-500-millones-de-dolares-en-ayuda-a-ucrania.shtml">\n' +
+      '                                            <h2 class="article-title">Estados Unidos anuncia 1.500 millones de dólares en ayuda a Ucrania</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/fzamarin">Felipe Zamarin</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/dwelle">Deutsche Welle</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Sábado 15 Junio, 2024 | 11:02                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/internacional/eeuu/2024/06/15/estados-unidos-anuncia-1-500-millones-de-dolares-en-ayuda-a-ucrania.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/estados-unidos-anuncia-1-500-millones-de-dolares-en-ayuda-a-ucrania-750x400.png)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'a3e0ae51e76978368af3ba35779b014e',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'La Tesorería alerta que está por vencer plazo para pagar la segunda cuota de las Contribuciones 2024',
+    link: 'https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/la-tesoreria-alerta-que-esta-por-vencer-plazo-para-pagar-la-segunda-cuota-de-las-contribuciones-2024.shtml',
+    date: Moment<2024-06-14T15:23:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/viviendas-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/la-tesoreria-alerta-que-esta-por-vencer-plazo-para-pagar-la-segunda-cuota-de-las-contribuciones-2024.shtml">\n' +
+      '                                            <h2 class="article-title">La Tesorería alerta que está por vencer plazo para pagar la segunda cuota de las Contribuciones 2024</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 15:23                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/la-tesoreria-alerta-que-esta-por-vencer-plazo-para-pagar-la-segunda-cuota-de-las-contribuciones-2024.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/viviendas-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '984e5f6a95b6fd1c0ed9bb5f1d16f0ad',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'El empresariado latino en EEUU estaría registrando un crecimiento sin precedentes',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-empresariado-latino-eeuu-estaria-registrando-un-crecimiento-sin-precedentes.shtml',
+    date: Moment<2024-06-14T13:41:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/miami-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-empresariado-latino-eeuu-estaria-registrando-un-crecimiento-sin-precedentes.shtml">\n' +
+      '                                            <h2 class="article-title">El empresariado latino en EEUU estaría registrando un crecimiento sin precedentes</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/agenciaefe">Agencia EFE</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 13:41                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-empresariado-latino-eeuu-estaria-registrando-un-crecimiento-sin-precedentes.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/miami-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'f086b0b7f875d4325b632dc8160cc814',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'El dólar toma fuerza y llega a más de $930 durante la sesión',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-dolar-toma-fuerza-y-llega-a-mas-de-930-durante-la-sesion.shtml',
+    date: Moment<2024-06-14T12:40:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/dolar-1-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-dolar-toma-fuerza-y-llega-a-mas-de-930-durante-la-sesion.shtml">\n' +
+      '                                            <h2 class="article-title">El dólar toma fuerza y llega a más de $930 durante la sesión</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 12:40                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/el-dolar-toma-fuerza-y-llega-a-mas-de-930-durante-la-sesion.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/dolar-1-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'e9e2c6e5fe5534e897e00d771c10fa85',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Gainax, el estudio responsable de Evangelion, se declara en quiebra y cierra sus puertas tras 40 años',
+    link: 'https://www.biobiochile.cl/noticias/sociedad/historia/2024/06/14/gainax-el-estudio-responsable-de-evangelion-se-declara-en-quiebra-y-cierra-sus-puertas-tras-40-anos.shtml',
+    date: Moment<2024-06-14T12:33:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/estudio-evangelion-750x400.png',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/sociedad/historia/2024/06/14/gainax-el-estudio-responsable-de-evangelion-se-declara-en-quiebra-y-cierra-sus-puertas-tras-40-anos.shtml">\n' +
+      '                                            <h2 class="article-title">Gainax, el estudio responsable de Evangelion, se declara en quiebra y cierra sus puertas tras 40 años</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/mstuardo">Manuel Stuardo</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 12:33                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/sociedad/historia/2024/06/14/gainax-el-estudio-responsable-de-evangelion-se-declara-en-quiebra-y-cierra-sus-puertas-tras-40-anos.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/estudio-evangelion-750x400.png)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'fde216ab5f2b60e18d442145c1c86fa7',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Desde botas de agua hasta generadores: Los artículos que están aumentando en ventas ante las lluvias',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/desde-botas-de-agua-hasta-generadores-los-articulos-que-estan-aumentando-en-ventas-ante-las-lluvias.shtml',
+    date: Moment<2024-06-14T11:37:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/compras-lluvia-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/desde-botas-de-agua-hasta-generadores-los-articulos-que-estan-aumentando-en-ventas-ante-las-lluvias.shtml">\n' +
+      '                                            <h2 class="article-title">Desde botas de agua hasta generadores: Los artículos que están aumentando en ventas ante las lluvias</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 11:37                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/desde-botas-de-agua-hasta-generadores-los-articulos-que-estan-aumentando-en-ventas-ante-las-lluvias.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/compras-lluvia-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '815cf73cbb07ddd64327ffaa7b4cbbad',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Chile estrecha lazos con Japón: país asiático tiene interés en el litio',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/chile-estrecha-lazos-con-japon-pais-asiatico-tiene-interes-en-el-litio.shtml',
+    date: Moment<2024-06-14T10:33:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/litio-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/chile-estrecha-lazos-con-japon-pais-asiatico-tiene-interes-en-el-litio.shtml">\n' +
+      '                                            <h2 class="article-title">Chile estrecha lazos con Japón: país asiático tiene interés en el litio</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 10:33                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/chile-estrecha-lazos-con-japon-pais-asiatico-tiene-interes-en-el-litio.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/litio-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'dc4fb044c66126e7be033b28a7c0176e',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'El sistema frontal golpea a agricultores: ¿Qué se sabe sobre posibles alzas de precios de alimentos?',
+    link: 'https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/el-sistema-frontal-golpea-a-agricultores-que-se-sabe-sobre-posibles-alzas-de-precios-de-alimentos.shtml',
+    date: Moment<2024-06-14T09:29:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/alimentos-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/el-sistema-frontal-golpea-a-agricultores-que-se-sabe-sobre-posibles-alzas-de-precios-de-alimentos.shtml">\n' +
+      '                                            <h2 class="article-title">El sistema frontal golpea a agricultores: ¿Qué se sabe sobre posibles alzas de precios de alimentos?</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 09:29                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/14/el-sistema-frontal-golpea-a-agricultores-que-se-sabe-sobre-posibles-alzas-de-precios-de-alimentos.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/alimentos-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '7e3deb5c9c25794ed9c000ad8db2b49e',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Kía Chile debe pagar $300 millones a familia de joven muerto en accidente: no se abrieron los airbags',
+    link: 'https://www.biobiochile.cl/noticias/nacional/region-de-los-lagos/2024/06/14/kia-debera-pagar-300-millones-a-familia-de-joven-que-murio-en-accidente-no-se-abrieron-los-airbags.shtml',
+    date: Moment<2024-06-14T09:03:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/nota-temuco-5-12-5-750x400.png',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/nacional/region-de-los-lagos/2024/06/14/kia-debera-pagar-300-millones-a-familia-de-joven-que-murio-en-accidente-no-se-abrieron-los-airbags.shtml">\n' +
+      '                                            <h2 class="article-title">Kía Chile debe pagar $300 millones a familia de joven muerto en accidente: no se abrieron los airbags</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/gfriz">Génesis Friz</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/hburrows">Hans Burrows</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 09:03                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/nacional/region-de-los-lagos/2024/06/14/kia-debera-pagar-300-millones-a-familia-de-joven-que-murio-en-accidente-no-se-abrieron-los-airbags.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/nota-temuco-5-12-5-750x400.png)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '6ff80ea72769509bdf7a6571407559a8',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: '"Los amo": Elon Musk triunfó ante inversores y se echó a bolsillo "módica" suma de US$50 mil millones',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/los-amo-elon-musk-triunfo-ante-inversores-y-se-echo-a-bolsillo-modica-suma-de-us50-mil-millones.shtml',
+    date: Moment<2024-06-14T08:36:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/elon-musk-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/los-amo-elon-musk-triunfo-ante-inversores-y-se-echo-a-bolsillo-modica-suma-de-us50-mil-millones.shtml">\n' +
+      '                                            <h2 class="article-title">"Los amo": Elon Musk triunfó ante inversores y se echó a bolsillo "módica" suma de US$50 mil millones</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Viernes 14 Junio, 2024 | 08:36                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/14/los-amo-elon-musk-triunfo-ante-inversores-y-se-echo-a-bolsillo-modica-suma-de-us50-mil-millones.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/elon-musk-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '4a7908dc4f8d40a0cc1132e32de2107b',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'De norte a sur ¿Cuáles son las mejores líneas de buses en Chile?',
+    link: 'https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/de-norte-a-sur-cuales-son-las-mejores-lineas-de-buses-en-chile.shtml',
+    date: Moment<2024-06-13T17:52:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/mejores-lineas-de-buses-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/de-norte-a-sur-cuales-son-las-mejores-lineas-de-buses-en-chile.shtml">\n' +
+      '                                            <h2 class="article-title">De norte a sur ¿Cuáles son las mejores líneas de buses en Chile?</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/ihermosilla">Ignacio Hermosilla</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 17:52                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/de-norte-a-sur-cuales-son-las-mejores-lineas-de-buses-en-chile.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/mejores-lineas-de-buses-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '26632520457a235cf14724a286013339',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'La inflación en Argentina se sitúa en 276,4% interanual y en mayo el IPC bajó de los dos dígitos',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/la-inflacion-en-argentina-se-situa-en-2764-interanual-en-mayo-el-ipc-bajo-de-los-dos-digitos.shtml',
+    date: Moment<2024-06-13T16:14:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/ipc-argentina-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/la-inflacion-en-argentina-se-situa-en-2764-interanual-en-mayo-el-ipc-bajo-de-los-dos-digitos.shtml">\n' +
+      '                                            <h2 class="article-title">La inflación en Argentina se sitúa en 276,4% interanual y en mayo el IPC bajó de los dos dígitos</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/agenciaefe">Agencia EFE</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 16:14                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/la-inflacion-en-argentina-se-situa-en-2764-interanual-en-mayo-el-ipc-bajo-de-los-dos-digitos.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/ipc-argentina-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '5352fdcb507ce435a5dd4363ea5c5bb9',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Casi 900 antenas de las empresas de telecomunicaciones han sufrido afectaciones por el sistema frontal',
+    link: 'https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/casi-900-antenas-de-las-empresas-de-telecomunicaciones-han-sufrido-afectaciones-por-el-sistema-frontal.shtml',
+    date: Moment<2024-06-13T15:17:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/telecomunicaciones-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/casi-900-antenas-de-las-empresas-de-telecomunicaciones-han-sufrido-afectaciones-por-el-sistema-frontal.shtml">\n' +
+      '                                            <h2 class="article-title">Casi 900 antenas de las empresas de telecomunicaciones han sufrido afectaciones por el sistema frontal</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 15:17                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/casi-900-antenas-de-las-empresas-de-telecomunicaciones-han-sufrido-afectaciones-por-el-sistema-frontal.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/telecomunicaciones-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '5923ce878377fd0835ca4251b3cdd117',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Expertos apuntan a un recorte de tipos de interés ante mejores rachas de la actividad económica',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/expertos-apuntan-a-un-recorte-de-tipos-de-interes-y-anaden-que-alza-en-cuentas-de-luz-impactaria-a-ipc.shtml',
+    date: Moment<2024-06-13T14:45:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/bcentral-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/expertos-apuntan-a-un-recorte-de-tipos-de-interes-y-anaden-que-alza-en-cuentas-de-luz-impactaria-a-ipc.shtml">\n' +
+      '                                            <h2 class="article-title">Expertos apuntan a un recorte de tipos de interés ante mejores rachas de la actividad económica</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/Vanesa Gajardo">Vanesa Gajardo</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 14:45                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/expertos-apuntan-a-un-recorte-de-tipos-de-interes-y-anaden-que-alza-en-cuentas-de-luz-impactaria-a-ipc.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/bcentral-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'a5e1815d44b85c87f713ed2b24bf8e1b',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Proyecto expone desafíos para cerrar brechas en educación financiera de mujeres y estudiantes',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/proyecto-expone-desafios-para-cerrar-brechas-en-educacion-financiera-de-mujeres-y-estudiantes.shtml',
+    date: Moment<2024-06-13T14:09:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/proyecto-educacion-financiera-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/proyecto-expone-desafios-para-cerrar-brechas-en-educacion-financiera-de-mujeres-y-estudiantes.shtml">\n' +
+      '                                            <h2 class="article-title">Proyecto expone desafíos para cerrar brechas en educación financiera de mujeres y estudiantes</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/Francisco">Francisco Iturra</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/cdeprensa">Comunicado de Prensa</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 14:09                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/proyecto-expone-desafios-para-cerrar-brechas-en-educacion-financiera-de-mujeres-y-estudiantes.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/proyecto-educacion-financiera-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '6da0582df0f7add9071a67429b43989d',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Es gratis y con tu Rut: Conoce si alguna vez una empresa o entidad averiguó si estabas o no en Dicom',
+    link: 'https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/es-gratis-y-con-tu-rut-conoce-si-alguna-vez-una-empresa-o-entidad-averiguo-si-estabas-o-no-en-dicom.shtml',
+    date: Moment<2024-06-13T13:30:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/dicom-1-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/es-gratis-y-con-tu-rut-conoce-si-alguna-vez-una-empresa-o-entidad-averiguo-si-estabas-o-no-en-dicom.shtml">\n' +
+      '                                            <h2 class="article-title">Es gratis y con tu Rut: Conoce si alguna vez una empresa o entidad averiguó si estabas o no en Dicom</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 13:30                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/es-gratis-y-con-tu-rut-conoce-si-alguna-vez-una-empresa-o-entidad-averiguo-si-estabas-o-no-en-dicom.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/dicom-1-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: 'c126f8eaab46bcf4b23065944958f804',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Por sistema frontal: Sernac detalla cuándo empresas deben aplicar descuentos por cortes de agua o luz',
+    link: 'https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/por-sistema-frontal-sernac-detalla-cuando-empresas-deben-aplicar-descuento-por-cortes-de-agua-o-luz.shtml',
+    date: Moment<2024-06-13T12:33:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/servicios-basicos-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/por-sistema-frontal-sernac-detalla-cuando-empresas-deben-aplicar-descuento-por-cortes-de-agua-o-luz.shtml">\n' +
+      '                                            <h2 class="article-title">Por sistema frontal: Sernac detalla cuándo empresas deben aplicar descuentos por cortes de agua o luz</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 12:33                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/13/por-sistema-frontal-sernac-detalla-cuando-empresas-deben-aplicar-descuento-por-cortes-de-agua-o-luz.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/servicios-basicos-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '4a39dd41c01df1f4838083f904ed38f6',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: '"Chile era muy pobre, la gente lo olvida": Büchi destaca legado de Chicago Boys y alude al comunismo',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/chile-era-muy-pobre-la-gente-lo-olvida-buchi-destaca-legado-de-chicago-boys-y-alude-al-comunismo.shtml',
+    date: Moment<2024-06-13T11:27:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/hernan-buchi-1-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/chile-era-muy-pobre-la-gente-lo-olvida-buchi-destaca-legado-de-chicago-boys-y-alude-al-comunismo.shtml">\n' +
+      '                                            <h2 class="article-title">"Chile era muy pobre, la gente lo olvida": Büchi destaca legado de Chicago Boys y alude al comunismo</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/veroreyes">Verónica Reyes</a>\n' +
+      '                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 11:27                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/chile-era-muy-pobre-la-gente-lo-olvida-buchi-destaca-legado-de-chicago-boys-y-alude-al-comunismo.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/hernan-buchi-1-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '3ed179c385764c998b9f7ffc9b6e8223',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Programa de difusión tecnológica sobre manufactura aditiva de Corfo reunió a actores de la industria',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/programa-de-difusion-tecnologica-sobre-manufactura-aditiva-de-corfo-reunio-a-actores-de-la-industria.shtml',
+    date: Moment<2024-06-13T11:26:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/representantes-de-empresas-tractoras-c4i-y-centec-de-rafaela-750x400.jpg',
+    raw_content: '<article class="article article-horizontal article-with-square justify-content-between">\n' +
+      '                                <div class="article-content-container">\n' +
+      '                                    <div class="article-text-container">\n' +
+      '                                        <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/programa-de-difusion-tecnologica-sobre-manufactura-aditiva-de-corfo-reunio-a-actores-de-la-industria.shtml">\n' +
+      '                                            <h2 class="article-title">Programa de difusión tecnológica sobre manufactura aditiva de Corfo reunió a actores de la industria</h2>\n' +
+      '                                        </a>\n' +
+      '                                        <div class="article-author-container">\n' +
+      '                                            Por\n' +
+      '                                            <a class="article-author" href="https://www.biobiochile.cl/lista/autores/frivas">Francisca Rivas</a>\n' +
+      '                                                                                            <br>La información es de\n' +
+      '                                                                                                                                                        <a class="article-author" style="line-height: 24px;" href="https://www.biobiochile.cl/lista/autores/cdeprensa">Comunicado de Prensa</a>\n' +
+      '                                                                                                                                    </div>\n' +
+      '                                        <div class="article-date-hour">\n' +
+      '                                            Jueves 13 Junio, 2024 | 11:26                                        </div>\n' +
+      '                                    </div>\n' +
+      '                                </div>\n' +
+      '                                <a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/programa-de-difusion-tecnologica-sobre-manufactura-aditiva-de-corfo-reunio-a-actores-de-la-industria.shtml">\n' +
+      '                                    <div class="article-image" style="background-image: url(https://media.biobiochile.cl/wp-content/uploads/2024/06/representantes-de-empresas-tractoras-c4i-y-centec-de-rafaela-750x400.jpg)"></div>\n' +
+      '                                </a>\n' +
+      '                            </article>',
+    hash_id: '50e993a9f16774b6cd6e3e9f54f3a420',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: '¿Tienes dudas sobre el monto? Así puedes calcular el finiquito mediante un simulador',
+    link: 'https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/tienes-dudas-sobre-el-monto-asi-puedes-calcular-el-finiquito-mediante-un-simulador.shtml',
+    date: Moment<2024-06-13T09:57:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/calcular-finiquito-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/tienes-dudas-sobre-el-monto-asi-puedes-calcular-el-finiquito-mediante-un-simulador.shtml"><h2 data-v-1e36662c="" class="article-title">¿Tienes dudas sobre el monto? Así puedes calcular el finiquito mediante un simulador</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/ndiaz" class="article-author">Nicolás Díaz</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Jueves 13 Junio, 2024 | 09:57\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/13/tienes-dudas-sobre-el-monto-asi-puedes-calcular-el-finiquito-mediante-un-simulador.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/calcular-finiquito-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '3c365c59194231a882b99144d267a791',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'La Polar y Abcdin alistan su fusión: hubo despidos y han cerrado casi una decena de locales',
+    link: 'https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/la-polar-y-abcdin-alistan-su-fusion-hubo-despidos-y-han-cerrado-casi-una-decena-de-locales.shtml',
+    date: Moment<2024-06-13T09:48:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/lapolar-abcdin-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/la-polar-y-abcdin-alistan-su-fusion-hubo-despidos-y-han-cerrado-casi-una-decena-de-locales.shtml"><h2 data-v-1e36662c="" class="article-title">La Polar y Abcdin alistan su fusión: hubo despidos y han cerrado casi una decena de locales</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Jueves 13 Junio, 2024 | 09:48\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/la-polar-y-abcdin-alistan-su-fusion-hubo-despidos-y-han-cerrado-casi-una-decena-de-locales.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/lapolar-abcdin-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '2d838bccc43bb1176c962903c58e586f',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Inmobiliaria en el ojo del Sernac por departamentos a los que se les está filtrando el agua',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/inmobiliaria-en-el-ojo-del-sernac-por-departamentos-a-los-que-se-les-esta-filtrando-el-agua.shtml',
+    date: Moment<2024-06-13T08:45:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/edificio-talca-filtraciones-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/inmobiliaria-en-el-ojo-del-sernac-por-departamentos-a-los-que-se-les-esta-filtrando-el-agua.shtml"><h2 data-v-1e36662c="" class="article-title">Inmobiliaria en el ojo del Sernac por departamentos a los que se les está filtrando el agua</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Jueves 13 Junio, 2024 | 08:45\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/13/inmobiliaria-en-el-ojo-del-sernac-por-departamentos-a-los-que-se-les-esta-filtrando-el-agua.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/edificio-talca-filtraciones-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '5a2beeb54c149bf0b87d766260042b2d',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: '"Es inaceptable": Automotrices chinas en pugna por los aranceles que les impusieron en Europa',
+    link: 'https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/es-inaceptable-automotrices-chinas-en-pugna-por-los-aranceles-que-les-impusieron-en-europa.shtml',
+    date: Moment<2024-06-13T07:35:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/ue-autos-chinos-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/es-inaceptable-automotrices-chinas-en-pugna-por-los-aranceles-que-les-impusieron-en-europa.shtml"><h2 data-v-1e36662c="" class="article-title">"Es inaceptable": Automotrices chinas en pugna por los aranceles que les impusieron en Europa</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <div data-v-1e36662c="">\n' +
+      '                                                    La información es de\n' +
+      '                                                    <span data-v-1e36662c=""><!----> <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/agenciaefe" class="article-author" style="line-height: 24px;">Agencia EFE</a></span></div></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Jueves 13 Junio, 2024 | 07:35\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/13/es-inaceptable-automotrices-chinas-en-pugna-por-los-aranceles-que-les-impusieron-en-europa.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/ue-autos-chinos-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '2ada2ad62dbc07dcbb9db48e593ca129',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Segunda baja consecutiva: bencinas costarán hasta $28,6 menos desde este jueves',
+    link: 'https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/12/segunda-baja-consecutiva-bencinas-costaran-286-menos-desde-este-jueves.shtml',
+    date: Moment<2024-06-12T18:08:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/combustibles-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/12/segunda-baja-consecutiva-bencinas-costaran-286-menos-desde-este-jueves.shtml"><h2 data-v-1e36662c="" class="article-title">Segunda baja consecutiva: bencinas costarán hasta $28,6 menos desde este jueves</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/francolopez" class="article-author">Franco López</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 18:08\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/tu-bolsillo/2024/06/12/segunda-baja-consecutiva-bencinas-costaran-286-menos-desde-este-jueves.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/combustibles-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '7042d5b5694c35935c785667f1298071',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: '¿Cómo puedo saber si tengo un seguro asociado a catástrofes por inundaciones o lluvias?',
+    link: 'https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/12/como-puedo-saber-si-tengo-un-seguro-asociado-a-catastrofes-por-inundaciones-o-lluvias.shtml',
+    date: Moment<2024-06-12T17:08:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/rut-seguro-catastrofico-750x400.png',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/12/como-puedo-saber-si-tengo-un-seguro-asociado-a-catastrofes-por-inundaciones-o-lluvias.shtml"><h2 data-v-1e36662c="" class="article-title">¿Cómo puedo saber si tengo un seguro asociado a catástrofes por inundaciones o lluvias?</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/bhaas" class="article-author">Bárbara Haas</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 17:08\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/06/12/como-puedo-saber-si-tengo-un-seguro-asociado-a-catastrofes-por-inundaciones-o-lluvias.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/rut-seguro-catastrofico-750x400.png&quot;);"></div></a></article>',
+    hash_id: '8f75752bd1c4c75ef011f512663afb05',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Empresas no pueden despedir ni hacer descuentos a trabajadores que se vean afectados por el temporal',
+    link: 'https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/12/empresas-no-pueden-despedir-ni-hacer-descuentos-a-trabajadores-que-se-vean-afectados-por-el-temporal.shtml',
+    date: Moment<2024-06-12T15:21:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/lluvias-2-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/12/empresas-no-pueden-despedir-ni-hacer-descuentos-a-trabajadores-que-se-vean-afectados-por-el-temporal.shtml"><h2 data-v-1e36662c="" class="article-title">Empresas no pueden despedir ni hacer descuentos a trabajadores que se vean afectados por el temporal</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 15:21\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2024/06/12/empresas-no-pueden-despedir-ni-hacer-descuentos-a-trabajadores-que-se-vean-afectados-por-el-temporal.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/lluvias-2-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '2dd561668fd75ac1a2673a4b8741cd06',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'En EEUU seguirán con resguardo: deciden mantener los tipos de interés pese a moderación de inflación',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/en-eeuu-seguiran-con-resguardo-deciden-mantener-los-tipos-de-interes-pese-a-moderacion-de-inflacion.shtml',
+    date: Moment<2024-06-12T15:12:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/eeuu-fed-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/en-eeuu-seguiran-con-resguardo-deciden-mantener-los-tipos-de-interes-pese-a-moderacion-de-inflacion.shtml"><h2 data-v-1e36662c="" class="article-title">En EEUU seguirán con resguardo: deciden mantener los tipos de interés pese a moderación de inflación</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 15:12\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/en-eeuu-seguiran-con-resguardo-deciden-mantener-los-tipos-de-interes-pese-a-moderacion-de-inflacion.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/eeuu-fed-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '1ba0589cf499cc695ae3d43792430742',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Rusia responde a nuevas sanciones de EEUU: La Bolsa de Moscú suspenderá operaciones en dólares y euros',
+    link: 'https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/rusia-responde-a-nuevas-sanciones-de-eeuu-la-bolsa-de-moscu-suspendera-operaciones-en-dolares-y-euros.shtml',
+    date: Moment<2024-06-12T14:23:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/bolsa-de-moscu-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/rusia-responde-a-nuevas-sanciones-de-eeuu-la-bolsa-de-moscu-suspendera-operaciones-en-dolares-y-euros.shtml"><h2 data-v-1e36662c="" class="article-title">Rusia responde a nuevas sanciones de EEUU: La Bolsa de Moscú suspenderá operaciones en dólares y euros</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/veroreyes" class="article-author">Verónica Reyes</a> <div data-v-1e36662c="">\n' +
+      '                                                    La información es de\n' +
+      '                                                    <span data-v-1e36662c=""><!----> <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/agenciaefe" class="article-author" style="line-height: 24px;">Agencia EFE</a></span></div></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 14:23\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2024/06/12/rusia-responde-a-nuevas-sanciones-de-eeuu-la-bolsa-de-moscu-suspendera-operaciones-en-dolares-y-euros.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/bolsa-de-moscu-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: '874f7ffbc765c9fa9c46dc71ca7af86e',
+    category: 'economia',
+    entity: 'biobiochile'
+  },
+  {
+    title: 'Nuevo subsidio de luz 2024 en Chile: quiénes pueden postular y de cuánto son los montos',
+    link: 'https://www.biobiochile.cl/noticias/servicios/beneficios/2024/06/12/nuevo-subsidio-de-luz-2024-en-chile-quienes-pueden-postular-y-de-cuanto-son-los-montos.shtml',
+    date: Moment<2024-06-12T11:27:00-04:00>,
+    image: 'https://media.biobiochile.cl/wp-content/uploads/2024/06/subsidio-de-luz-2024-chile-750x400.jpg',
+    raw_content: '<article data-v-1e36662c="" class="article article-horizontal article-with-square justify-content-between"><div data-v-1e36662c="" class="article-content-container"><div data-v-1e36662c="" class="article-text-container"><a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/beneficios/2024/06/12/nuevo-subsidio-de-luz-2024-en-chile-quienes-pueden-postular-y-de-cuanto-son-los-montos.shtml"><h2 data-v-1e36662c="" class="article-title">Nuevo subsidio de luz 2024 en Chile: quiénes pueden postular y de cuánto son los montos</h2></a> <div data-v-1e36662c="" class="article-author-container">\n' +
+      '                                                Por\n' +
+      '                                                <a data-v-1e36662c="" href="https://www.biobiochile.cl/lista/autores/ndiaz" class="article-author">Nicolás Díaz</a> <!----></div> <div data-v-1e36662c="" class="article-date-hour">\n' +
+      '                                                Miércoles 12 Junio, 2024 | 11:27\n' +
+      '                                            </div></div></div> <a data-v-1e36662c="" href="https://www.biobiochile.cl/noticias/servicios/beneficios/2024/06/12/nuevo-subsidio-de-luz-2024-en-chile-quienes-pueden-postular-y-de-cuanto-son-los-montos.shtml"><div data-v-1e36662c="" class="article-image" style="background-image: url(&quot;https://media.biobiochile.cl/wp-content/uploads/2024/06/subsidio-de-luz-2024-chile-750x400.jpg&quot;);"></div></a></article>',
+    hash_id: 'd622042ee3083b7aba33818370c14a5f',
+    category: 'economia',
+    entity: 'biobiochile'
+  }
+]
