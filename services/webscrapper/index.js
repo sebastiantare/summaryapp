@@ -8,6 +8,8 @@ import { createHash } from 'crypto';
 import { sql } from '@vercel/postgres';
 import { config } from 'dotenv';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { setTimeout } from "timers/promises";
 
 // Load .env
 config();
@@ -18,6 +20,10 @@ const client = new S3Client({});
 // Config locale
 moment.locale('es');
 const formatString = 'dddd DD MMMM, YYYY HH:mm';
+
+// Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // For createing short IDs
 function hash(url) {
@@ -74,22 +80,28 @@ function getLowestDate(dates) {
 //** SCRAPPER FUNCTIONS **//
 
 async function scrapeBioBioArticles(browser, targets) {
+  console.log('### scrapeBioBioArticles ###');
   const result = [];
   var now_date = new Date();
 
   for (const target of targets) {
+    console.log(`Starting on target: ${target.url}`);
     const page = await browser.newPage();
     await page.setViewport({ width: 800, height: 600 });
     await page.goto(target.url, { waitUntil: 'load', timeout: 0 });
 
+    console.log(`Get last date from vercel`);
     var last_date = await getLastArticleDate(target.entity, target.category);
     const daysDiff = moment.duration(moment(now_date).diff(moment(last_date))).asDays();
-    if (daysDiff > 1) last_date = new Date().setHours(-24);
+
+    if (daysDiff > 1) {
+      last_date = new Date();
+      last_date.setHours(-24);
+    }
 
     var upper_date = new Date();
 
     while (upper_date > last_date) {
-
       // Scrap
       console.log(`Processing... ${target.url}`);
       console.log(`From ${upper_date} to ${last_date}`);
@@ -101,15 +113,17 @@ async function scrapeBioBioArticles(browser, targets) {
         }
       });
 
-      // Load more
+      // Wait for load
+      console.log("Waiting...");
       await page.waitForSelector('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
       await page.click('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
 
       // Take screenshot and get buffer
+      console.log("Screnshot");
       const screenshotBuffer = await page.screenshot();
 
       // Upload to S3
-      const fileName = `sc_biobiochile-${Date.now()}.png`;
+      const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
       await uploadToS3(screenshotBuffer, fileName);
 
       console.log(`Uploaded to S3 ${fileName}`);
@@ -129,7 +143,6 @@ async function scrapeBioBioArticles(browser, targets) {
 
           // Skip the article if it doesn't have a title
           if (!aTitle) {
-            console.log(articleEl.outerHTML);
             return null;
           }
 
@@ -143,6 +156,8 @@ async function scrapeBioBioArticles(browser, targets) {
           };
         });
       }));
+
+      console.log(`Scrapped for ${target.category}: ${data.length}`);
 
       const filteredData = data.filter(article => article !== null);
 
@@ -171,11 +186,12 @@ async function scrapeBioBioArticles(browser, targets) {
     }
 
     // Close the page
-    const pages = await browser.pages();
-    await Promise.all(pages.map(async (p) => p.close()));
+    //const pages = await browser.pages();
+    //await Promise.all(pages.map(async (p) => p.close()));
+    await page.close();
   }
 
-  // Executes synchronously so that it doesn't executes all at one time.
+  // Scrape body
   const completeArticles = [];
 
   for (const articleData of result) {
@@ -183,10 +199,8 @@ async function scrapeBioBioArticles(browser, targets) {
     completeArticles.push(completeArticle);
   }
 
-  const pages = await browser.pages();
-  await Promise.all(pages.map(async (p) => p.close()));
-
-  console.log(completeArticles);
+  //const pages = await browser.pages();
+  //await Promise.all(pages.map(async (p) => p.close()));
 
   return completeArticles;
 }
@@ -200,7 +214,6 @@ async function scrapeBioBioBody(browser, articleData) {
     await page.goto(articleData.link, { waitUntil: 'load', timeout: 0 });
 
     const paragraphs = await page.$$eval('div.post-main-aside-container > div > div.post-content.clearfix > div > p', (ps) => {
-      // Extract the text content of each <p> element
       return ps.map(p => p.textContent);
     });
 
@@ -211,30 +224,52 @@ async function scrapeBioBioBody(browser, articleData) {
     const screenshotBuffer = await page.screenshot();
 
     // Upload to S3
-    const fileName = `sc_biobiochile-${Date.now()}.png`;
+    const fileName = `sc_biobiochile-body-${Date.now()}.png`;
     //await uploadToS3(screenshotBuffer, fileName);
 
-    // Update date in case it wasn't setted up previously
+    const articleBody = paragraphs.join(' ');
+
+    // Add and update article data
     const updatedArticleData = {
       ...articleData,
-      body: paragraphs.join(' '),
-      date: dateArticle === '' ? '' : moment(dateArticle.trim().split(' | ').join(' '), formatString),
+      body: articleBody,
+      date: dateArticle === '' ? '' : moment(dateArticle.trim().split(' | ').join(' '), formatString)
     }
 
-    const pages = await browser.pages();
-    await Promise.all(pages.map(async (p) => p.close()));
+    //const pages = await browser.pages();
+    //await Promise.all(pages.map(async (p) => p.close()));
+    await page.close();
 
     return updatedArticleData;
-
   } catch (e) {
     console.log(e);
   }
 }
 
-/** Util Functions  **/
+/**** Util Functions  ****/
+
+/** Takes an article and generates a summary in markup **/
+async function summarizeArticle(title, body) {
+  const prompt = `
+    Vas a realizar el trabajo de resumir artículos noticieros siguiendo el siguiente formato:
+
+    Título
+    Bulletpoint 1
+    Bulletpoint 2
+    ...
+
+    Realiza el resumen utilizando la menor cantidad de bulletpoints posibles (max 5). El resumen total no debe superar las 100 palabras total. El resumen debe dar una idea general de qué es lo más importante en la noticia. Reduce la complejidad del artículo utilizando palabras más simples.
+
+    Artículo: "${title} ${body}"
+  `;
+
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  return text;
+}
 
 const uploadToS3 = async (buffer, fileName) => {
-
   const params = {
     Bucket: process.env.S3_BUCKET_NAME,
     Key: fileName,
@@ -260,8 +295,6 @@ async function getLastArticleDate(entity, category) {
       ORDER BY publish_date desc limit 1;
   `;
 
-  console.log(rows);
-
   if (rows.length === 0) {
     const nowminus24 = new Date();
     return nowminus24;
@@ -270,20 +303,22 @@ async function getLastArticleDate(entity, category) {
   return rows[0].publish_date;
 }
 
-async function saveURLs(data) {
-  const { hash_id, title, link, date, image, raw_content, body, entity, category } = data;
+async function saveArticle(data) {
+  const { hash_id, title, link, date, image, raw_content, body, entity, category, generated_summary } = data;
   const fdate = date === '' ? null : date.format();
 
   try {
     const result = await sql`
-      INSERT INTO articles (article_hash, article_title, category, publish_date, raw_content, article_body, source_entity, article_link)
-      VALUES (${hash_id}, ${title}, ${category}, ${fdate}, ${raw_content}, ${body}, ${entity}, ${link});
+      INSERT INTO articles (article_hash, article_title, category, publish_date, raw_content, article_body, source_entity, article_link, generated_summary)
+      VALUES (${hash_id}, ${title}, ${category}, ${fdate}, ${raw_content}, ${body}, ${entity}, ${link}, ${generated_summary});
     `;
     return result;
   } catch (e) {
+    console.log(e);
     return null;
   }
 }
+
 
 /**
   * How this works:
@@ -313,16 +348,40 @@ export const handler = async () => {
 
   /** Start **/
   const browser = await initializeBrowser();
+  console.log(`Browser initialized`);
 
-  // Get lowest date of the batch scrape for biobiochile
+  // Scrape data
+  const biobiopromises = await scrapeBioBioArticles(browser, biobiopages);
+  const biobioarticles = await Promise.all(biobiopromises);
+  const biobioresult = [];
 
-  const biobioarticles = await scrapeBioBioArticles(browser, biobiopages);
+  var timeout_gemini = 1000;
 
-  console.log(biobioarticles);
+  // Summarize articles
+  for (const article of biobioarticles) {
+    try {
+      const { title, body } = article;
+      const summary = await summarizeArticle(title, body);
+      biobioresult.push({ ...article, generated_summary: summary });
+      await setTimeout(timeout_gemini);
+      timeout_gemini = 1000;
+    } catch (e) {
+      console.log(`Error while summarizing article: ${e}`);
+      timeout_gemini = timeout_gemini * 1.5;
+      if (String(e).includes(`SAFETY`)) console.log(article);
+      console.log(`Retrying in: ${timeout_gemini}ms`);
+      await setTimeout(timeout_gemini);
+    }
+  }
 
-  biobioarticles.map((article) => {
-    saveURLs(article);
-  });
+  // Save articles to vercel db
+  for (var i = 0; i < biobioresult.length; i++) {
+    try {
+      await saveArticle(biobioresult[i]);
+    } catch (e) {
+      consolee.log(`Error while saving articles to vercel db: ${e}`);
+    }
+  }
 
   await browser.close();
 }
