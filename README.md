@@ -11,7 +11,7 @@
 
 ## Project Progression ![](https://geps.dev/progress/40)
 1. Scrape & store news articles with Airflow. ✅
-2. Generate bulletpoints summaries & negativity score with two LLM. ✅
+2. Generate bulletpoints summaries & negativity score ✅
 3. Make a simple webpage for email subscription to the service and news configuration.
 4. Create service for automating sending emails to the registered clients.
 5. Evaluate costs & Upload the models to a cloud service to be accessed through the API.
