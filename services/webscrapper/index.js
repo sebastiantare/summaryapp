@@ -8,8 +8,10 @@ import { createHash } from 'crypto';
 import { sql } from '@vercel/postgres';
 import { config } from 'dotenv';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 import { setTimeout } from "timers/promises";
+import fetch from 'node-fetch';
+import pino from 'pino';
 
 // Load .env
 config();
@@ -21,9 +23,30 @@ const client = new S3Client({});
 moment.locale('es');
 const formatString = 'dddd DD MMMM, YYYY HH:mm';
 
+const logger = pino();
+
 // Gemini
+const safetySetting = [
+  {
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+];
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", safetySettings: safetySetting });
 
 // For createing short IDs
 function hash(url) {
@@ -63,7 +86,7 @@ async function initializeBrowser() {
     return browser;
 
   } catch (error) {
-    console.log("Error with browser", error);
+    logger.info("Error with browser", error);
   }
 }
 
@@ -107,23 +130,23 @@ function isUpperDateGreater(upper, lower) {
 
 //** SCRAPPER FUNCTIONS **//
 
-async function scrapeBioBioArticles(browser, target) {
-  console.log('### scrapeBioBioArticles ###');
+async function scrapeLaTerceraArticles(browser, target) {
+  logger.info('### scrapeLaTerceraArticles ###');
   var result = [];
   var now_date = new Date();
   var articlesCount = 0;
 
-  console.log(`Starting on target: ${target.url}`);
+  logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
   await page.goto(target.url, { waitUntil: 'load', timeout: 0 });
 
-  console.log(`Get last date from vercel`);
+  logger.info(`Get last date from vercel`);
   var last_date = await getLastArticleDate(target.entity, target.category);
   const daysDiff = moment.duration(moment(now_date).diff(moment(last_date))).asDays();
 
   if (daysDiff > 1) {
-    console.log(`Date exceeds 24 hours`);
+    logger.info(`Date exceeds 24 hours`);
     last_date = new Date();
     last_date.setHours(-24);
   }
@@ -132,8 +155,8 @@ async function scrapeBioBioArticles(browser, target) {
 
   while (isUpperDateGreater(upper_date, last_date)) {
     // Scrap
-    console.log(`Processing... ${target.url}`);
-    console.log(`${upper_date} > ${last_date}`);
+    logger.info(`Processing... ${target.url}`);
+    logger.info(`${upper_date} > ${last_date}`);
 
     await page.evaluate(() => {
       const scrollHeight = document.body.scrollHeight;
@@ -143,21 +166,21 @@ async function scrapeBioBioArticles(browser, target) {
     });
 
     // Wait for load
-    console.log("Waiting...");
-    await page.waitForSelector('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
-    await page.click('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+    logger.info("Waiting...");
+    await page.waitForSelector('div.fetch-btn-container > button');
+    await page.click('div.fetch-btn-container > button');
 
     // Take screenshot and get buffer
-    console.log("Screnshot");
-    const screenshotBuffer = await page.screenshot();
+    //logger.info("Screnshot");
+    //const screenshotBuffer = await page.screenshot();
 
     // Upload to S3
-    const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
-    await uploadToS3(screenshotBuffer, fileName);
+    //const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
+    //await uploadToS3(screenshotBuffer, fileName);
 
-    console.log(`Uploaded to S3 ${fileName}`);
+    //logger.info(`Uploaded to S3 ${fileName}`);
 
-    console.log("Begin scrape");
+    logger.info("Begin scrape");
 
     // Begin scrape
 
@@ -186,7 +209,7 @@ async function scrapeBioBioArticles(browser, target) {
       });
     }));
 
-    console.log(`Scrapped for ${target.category}: ${data.length}`);
+    logger.info(`Scrapped for ${target.category}: ${data.length}`);
 
     const filteredData = data.filter(article => article !== null);
 
@@ -216,7 +239,129 @@ async function scrapeBioBioArticles(browser, target) {
       articlesCount = data.length;
     }
 
-    console.log(`Finished scrape with date ${upper_date} > ${last_date}: ${(upper_date > last_date)}`);
+    logger.info(`Finished scrape with date ${upper_date} > ${last_date}: ${(upper_date > last_date)}`);
+    result = formattedData;
+  }
+
+  // Close the page
+  //const pages = await browser.pages();
+  //await Promise.all(pages.map(async (p) => p.close()));
+  await page.close();
+
+  return result;
+}
+
+/* BIOBIO */
+async function scrapeBioBioArticles(browser, target) {
+  logger.info('### scrapeBioBioArticles ###');
+  var result = [];
+  var now_date = new Date();
+  var articlesCount = 0;
+
+  logger.info(`Starting on target: ${target.url}`);
+  const page = await browser.newPage();
+  await page.setViewport({ width: 800, height: 600 });
+  await page.goto(target.url, { waitUntil: 'load', timeout: 0 });
+
+  logger.info(`Get last date from vercel`);
+  var last_date = await getLastArticleDate(target.entity, target.category);
+  const daysDiff = moment.duration(moment(now_date).diff(moment(last_date))).asDays();
+
+  if (daysDiff > 1) {
+    logger.info(`Date exceeds 24 hours`);
+    last_date = new Date();
+    last_date.setHours(-24);
+  }
+
+  var upper_date = new Date();
+
+  while (isUpperDateGreater(upper_date, last_date)) {
+    // Scrap
+    logger.info(`Processing... ${target.url}`);
+    logger.info(`${upper_date} > ${last_date}`);
+
+    await page.evaluate(() => {
+      const scrollHeight = document.body.scrollHeight;
+      for (let i = 0; i < scrollHeight; i += 100) {
+        window.scrollBy(0, 100);
+      }
+    });
+
+    // Wait for load
+    logger.info("Waiting...");
+    await page.waitForSelector('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+    await page.click('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+
+    // Take screenshot and get buffer
+    //logger.info("Screnshot");
+    //const screenshotBuffer = await page.screenshot();
+
+    // Upload to S3
+    //const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
+    //await uploadToS3(screenshotBuffer, fileName);
+
+    //logger.info(`Uploaded to S3 ${fileName}`);
+
+    logger.info("Begin scrape");
+
+    // Begin scrape
+
+    const articles = await page.$$('article');
+
+    //body > main > div > section > div.section-body > div.highlight > article
+    //body > main > div > section > div.section-body > div.results-container > div > article:nth-child(1)
+
+    const data = await Promise.all(articles.map(async (article) => {
+      return article.evaluate(articleEl => {
+        const aTitle = articleEl.querySelector('a > h2.article-title')?.textContent;
+
+        // Skip the article if it doesn't have a title
+        if (!aTitle) {
+          return null;
+        }
+
+        return {
+          title: aTitle.trim(),
+          link: articleEl.querySelector('div > a')?.href || '',
+          /** Warning: Date is not available when scrapping the header article. **/
+          date: articleEl.querySelector('div > div > div.article-date-hour')?.textContent || '',
+          image: articleEl.querySelector('a > div.article-image')?.style.backgroundImage || '',
+          raw_content: articleEl.outerHTML || ''
+        };
+      });
+    }));
+
+    logger.info(`Scrapped for ${target.category}: ${data.length}`);
+
+    const filteredData = data.filter(article => article !== null);
+
+    const formattedData = filteredData.map(article => {
+      let parsedUrl = article.image;
+
+      const urlMatch = article.image.match(/url\(["']?(.*?)["']?\)/);
+      if (urlMatch && urlMatch.length > 1) {
+        parsedUrl = urlMatch[1];
+      }
+
+      return {
+        ...article,
+        image: parsedUrl,
+        date: article.date === '' ? '' : moment(article.date.trim().split(' | ').join(' '), formatString),
+        hash_id: hash(article.link),
+        category: target.category,
+        entity: target.entity
+      };
+    });
+
+    if (articlesCount === data.length) {
+      // Data is not growing in number, thus escape the cycle.
+      upper_date = last_date;
+    } else {
+      upper_date = getLowestDate(formattedData);
+      articlesCount = data.length;
+    }
+
+    logger.info(`Finished scrape with date ${upper_date} > ${last_date}: ${(upper_date > last_date)}`);
     result = formattedData;
   }
 
@@ -229,24 +374,82 @@ async function scrapeBioBioArticles(browser, target) {
 }
 
 async function scrapeBioBioBody(browser, articleData) {
-  console.log(`Scrapping ${articleData.link}`);
+  logger.info(`Scrapping ${articleData.link}`);
 
   // New page
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
   await page.goto(articleData.link, { waitUntil: 'load', timeout: 0 });
 
-  const paragraphs = await page.$$eval('div.post-main-aside-container > div > div.post-content.clearfix > div > p', (ps) => {
+  const paragraphs = await page.$$eval('div > p', (ps) => {
     return ps.map(p => p.textContent);
   });
 
-  console.log(`Paragraphs: ${paragraphs.length}`);
+  logger.info(`Paragraphs: ${paragraphs.length}`);
 
   const dateArticle = await page.$eval('#cbb-aux-container > div.post-date', (dateEl) => {
     return dateEl.textContent;
   });
 
-  console.log(`Date: ${dateArticle}`);
+  logger.info(`Date: ${dateArticle}`);
+
+  const idNota = await page.$eval(`head`, (head) => {
+    return head.getAttribute('data-id-nota');
+  });
+
+  /*
+  [
+  {
+    "NotaId": 6133281,
+    "Fecha": {
+      "$date": {
+        "$numberLong": "1718740029"
+      }
+    },
+    "Categorias": [
+      "nacional",
+      "chile"
+    ],
+    "Tags": [
+      "apoyo-a-familias",
+      "armas-incautadas",
+      "bio-bio",
+      "corrupcion-en-carabineros-ricardo-yanez",
+      "cuenta-publica-2023",
+      "departamento-b9",
+      "detenciones-en-chile",
+      "drogas-decomisadas",
+      "extranjeros-en-delitos",
+      "fundacion-paz-y-familia",
+      "gestion-2023",
+      "incautaciones",
+      "institucion-carabineros",
+      "martires-de-carabineros",
+      "ministerio-publico",
+      "ninos-y-adolescentes-en-delitos",
+      "organizaciones-criminales-desbaratadas",
+      "region-metropolitana",
+      "valparaiso"
+    ],
+    "Autor": "Florencia Ortiz",
+    "CoAutores": "",
+    "Publishers": [
+      "Carlos Godoy"
+    ],
+    "Colaborators": "",
+    "Titulo": "Cuenta pública de Carabineros: aumentó el número de secuestros y menores que delinquen",
+    "CatPrimary": "nacional",
+    "CatSecondary": "chile",
+    "Visitas": 13761
+  }
+  ]
+  */
+
+  const response = await fetch(`https://contador.biobiochile.cl/api/visitas/get-visitas?idNota=${idNota}`);
+  const fetchData = await response.json();
+  const viewCount = fetchData[0].Visitas || null;
+
+  logger.info(`View Count: ${viewCount}`);
 
   //const screenshotBuffer = await page.screenshot();
 
@@ -260,7 +463,8 @@ async function scrapeBioBioBody(browser, articleData) {
   const updatedArticleData = {
     ...articleData,
     body: articleBody,
-    date: articleData.date === '' ? moment(dateArticle.trim().split(' | ').join(' '), formatString) : articleData.date
+    date: articleData.date === '' ? moment(dateArticle.trim().split(' | ').join(' '), formatString) : articleData.date,
+    views: viewCount,
   }
 
   //const pages = await browser.pages();
@@ -305,11 +509,38 @@ const uploadToS3 = async (buffer, fileName) => {
     const command = new PutObjectCommand(params);
     const response = await client.send(command);
 
-    console.log(`File uploaded successfully. https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`);
+    logger.info(`File uploaded successfully. https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`);
   } catch (error) {
-    console.error('Error uploading file:', error);
+    logger.error('Error uploading file:', error);
   }
 };
+
+async function saveImage(data) {
+  const { hash_id, image } = data;
+  const image_hash = hash(image);
+  try {
+    const result = await sql`
+      INSERT INTO header_images (article_hash, image_hash, s3_link) VALUES (${hash_id}, ${image_hash}, ${image});
+    `;
+    return result;
+  } catch (e) {
+    logger.error(e);
+  }
+}
+
+/**
+  * Retrieves the latest articles hash so it doesn't prcess already existing articles
+  */
+async function getLatestArticles() {
+  // I do 48 hours to ensure all ids are considered
+  const { rows } = await sql`
+    SELECT article_hash
+    FROM articles
+    WHERE publish_date >= NOW() - INTERVAL '48 hours';
+  `;
+
+  return rows;
+}
 
 async function getLastArticleDate(entity, category) {
   const { rows } = await sql`
@@ -329,17 +560,18 @@ async function getLastArticleDate(entity, category) {
 }
 
 async function saveArticle(data) {
-  const { hash_id, title, link, date, image, raw_content, body, entity, category, generated_summary } = data;
+  const { hash_id, title, link, date, image, raw_content, body, entity, category, generated_summary, views } = data;
   const fdate = date === '' ? null : date.format();
 
   try {
     const result = await sql`
-      INSERT INTO articles (article_hash, article_title, category, publish_date, raw_content, article_body, source_entity, article_link, generated_summary)
-      VALUES (${hash_id}, ${title}, ${category}, ${fdate}, ${raw_content}, ${body}, ${entity}, ${link}, ${generated_summary});
+      INSERT INTO articles (article_hash, article_title, category, publish_date, raw_content, article_body, source_entity, article_link, generated_summary, view_count)
+      VALUES (${hash_id}, ${title}, ${category}, ${fdate}, ${raw_content}, ${body}, ${entity}, ${link}, ${generated_summary}, ${views});
     `;
     return result;
   } catch (e) {
-    console.log(e);
+    logger.error(e);
+    logger.error({ hash_id, title });
     return null;
   }
 }
@@ -373,38 +605,56 @@ export const handler = async () => {
 
   /** Start **/
   const browser = await initializeBrowser();
-  console.log(`Browser initialized`);
+  logger.info(`Browser initialized`);
+
+  /* Get the latest ids in 24 hours window to skip 
+  /* scraping & summarizing already existing articles.
+    */
+  const latestIds = await getLatestArticles();
+
+  const hashMap = Object.values(latestIds).reduce((map, article) => {
+    map[article.article_hash] = article;
+    return map;
+  }, {});
 
   // Scrape data
   const biobio_1 = await scrapeBioBioArticles(browser, biobiopages[0]);
   const biobio_2 = await scrapeBioBioArticles(browser, biobiopages[1]);
 
-  console.log(biobio_1.length, biobio_2.length);
+  logger.info(`Articles:`, biobio_1.length, ' and ', biobio_2.length);
 
-  // Complete scrape of body
+  // Complete scrape of body of unseen articles
   const biobio_1_complete = [];
   const biobio_2_complete = [];
 
+
+  logger.info(`Biobio 0/2`);
+
   for (const bb1 of biobio_1) {
     try {
+      // Skip alredy processed article.
+      if (hashMap[bb1.hash_id] !== undefined) continue;
       const bb1_data = await scrapeBioBioBody(browser, bb1);
       biobio_1_complete.push(bb1_data);
     } catch (e) {
-      console.log(e);
+      logger.error(e);
     }
   }
+
+  logger.info(`Biobio 1/2`);
 
   for (const bb2 of biobio_2) {
     try {
+      // Skip alredy processed article.
+      if (hashMap[bb2.hash_id] !== undefined) continue;
       const bb2_data = await scrapeBioBioBody(browser, bb2);
       biobio_2_complete.push(bb2_data);
     } catch (e) {
-      console.log(e);
+      logger.error(e);
     }
   }
 
-  console.log(biobio_1_complete);
-  console.log(biobio_2_complete);
+  logger.info(`Biobio 2/2`);
 
   const biobioarticles = [...biobio_1_complete, ...biobio_2_complete];
   const biobioresult = [];
@@ -412,34 +662,38 @@ export const handler = async () => {
   var timeout_gemini = 1000;
 
   // Summarize articles
+  logger.info(`Summarizing ${biobioarticles.length} articles...`);
+  let a = 0;
   for (const article of biobioarticles) {
+    a++;
     try {
       const { title, body } = article;
       const summary = await summarizeArticle(title, body);
-      biobioresult.push({ ...article, generated_summary: summary });
+      //biobioresult.push({ ...article, generated_summary: summary });
+      await saveArticle({ ...article, generated_summary: summary });
 
       timeout_gemini = 1000;
       await setTimeout(timeout_gemini);
     } catch (e) {
-      console.log(`Error while summarizing article: ${e}`);
+      logger.error(`Error while summarizing article: ${e}`);
       timeout_gemini = timeout_gemini * 1.5;
+      if (timeout_gemini > 1000 * 180) timeout_gemini = 1000 * 180;
 
-      if (String(e).includes(`SAFETY`)) console.log(article);
-
-      console.log(`Retrying in: ${timeout_gemini}ms`);
+      logger.info(`Retrying in: ${timeout_gemini}ms`);
       await setTimeout(timeout_gemini);
     }
   }
 
   // Save articles to vercel db
-  for (var i = 0; i < biobioresult.length; i++) {
+  /*for (var i = 0; i < biobioresult.length; i++) {
     try {
       await saveArticle(biobioresult[i]);
+      //await saveImage(biobioresult[i]);
     } catch (e) {
-      consolee.log(`Error while saving articles to vercel db: ${e}`);
+      logger.error(`Error while saving articles to vercel db: ${e}`);
     }
-  }
-
+  }*/
+  logger.info(`Done.`);
   await browser.close();
 }
 

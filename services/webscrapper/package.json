@@ -20,6 +20,8 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "moment": "^2.30.1",
+    "node-fetch": "^3.3.2",
+    "pino": "^9.2.0",
     "puppeteer-core": "^19.11.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-adblocker": "^2.13.6",
