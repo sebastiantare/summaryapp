@@ -8,10 +8,17 @@ import { createHash } from 'crypto';
 import { sql } from '@vercel/postgres';
 import { config } from 'dotenv';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { StopInstancesCommand } from "@aws-sdk/client-ec2";
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 import { setTimeout } from "timers/promises";
 import fetch from 'node-fetch';
 import pino from 'pino';
+import axios from 'axios';
+import { EC2Client } from "@aws-sdk/client-ec2";
+
+// EC2 Conf
+const REGION = "sa-east-1";
+const awsClient = new EC2Client({ region: REGION });
 
 // Load .env
 config();
@@ -135,6 +142,7 @@ async function scrapeLaTerceraArticles(browser, target) {
   var result = [];
   var now_date = new Date();
   var articlesCount = 0;
+  var pageCount = 1; //This works better instead of clicking the next button latercerapage/{pageCount}
 
   logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
@@ -165,18 +173,13 @@ async function scrapeLaTerceraArticles(browser, target) {
       }
     });
 
-    // Wait for load
-    logger.info("Waiting...");
-    await page.waitForSelector('div.fetch-btn-container > button');
-    await page.click('div.fetch-btn-container > button');
-
     // Take screenshot and get buffer
     //logger.info("Screnshot");
-    //const screenshotBuffer = await page.screenshot();
+    const screenshotBuffer = await page.screenshot();
 
     // Upload to S3
-    //const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
-    //await uploadToS3(screenshotBuffer, fileName);
+    const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
+    await uploadToS3(screenshotBuffer, fileName);
 
     //logger.info(`Uploaded to S3 ${fileName}`);
 
@@ -191,7 +194,7 @@ async function scrapeLaTerceraArticles(browser, target) {
 
     const data = await Promise.all(articles.map(async (article) => {
       return article.evaluate(articleEl => {
-        const aTitle = articleEl.querySelector('a > h2.article-title')?.textContent;
+        const aTitle = articleEl.querySelector('div.headline.\|.width_full.hl > h3 > a')?.textContent;
 
         // Skip the article if it doesn't have a title
         if (!aTitle) {
@@ -200,14 +203,17 @@ async function scrapeLaTerceraArticles(browser, target) {
 
         return {
           title: aTitle.trim(),
-          link: articleEl.querySelector('div > a')?.href || '',
+          link: articleEl.querySelector('h3 > a')?.href || '',
           /** Warning: Date is not available when scrapping the header article. **/
-          date: articleEl.querySelector('div > div > div.article-date-hour')?.textContent || '',
-          image: articleEl.querySelector('a > div.article-image')?.style.backgroundImage || '',
+          date: articleEl.querySelector('div.byline.\|.undefined.isText.width_full > div.time')?.textContent || '',
+          image: articleEl.querySelector('figure > a > picture > img')?.src || '',
           raw_content: articleEl.outerHTML || ''
         };
       });
     }));
+
+    logger.info(data);
+    //...
 
     logger.info(`Scrapped for ${target.category}: ${data.length}`);
 
@@ -289,16 +295,21 @@ async function scrapeBioBioArticles(browser, target) {
 
     // Wait for load
     logger.info("Waiting...");
-    await page.waitForSelector('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
-    await page.click('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+    try {
+      await page.waitForSelector('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+      await page.click('body > main > div > section > div.section-body > div.results-container > div > div > div.fetch-btn-container > button');
+    } catch (e) {
+      logger.error(`Error while waiting for button`, e);
+      continue;
+    }
 
     // Take screenshot and get buffer
     //logger.info("Screnshot");
-    //const screenshotBuffer = await page.screenshot();
+    const screenshotBuffer = await page.screenshot();
 
     // Upload to S3
-    //const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
-    //await uploadToS3(screenshotBuffer, fileName);
+    const fileName = `sc_biobiochile_${target.category}_${Date.now()}.png`;
+    await uploadSCToS3(screenshotBuffer, fileName);
 
     //logger.info(`Uploaded to S3 ${fileName}`);
 
@@ -497,7 +508,8 @@ async function summarizeArticle(title, body) {
   return text;
 }
 
-const uploadToS3 = async (buffer, fileName) => {
+const uploadSCToS3 = async (buffer, fileName) => {
+
   const params = {
     Bucket: process.env.S3_BUCKET_NAME,
     Key: fileName,
@@ -514,6 +526,32 @@ const uploadToS3 = async (buffer, fileName) => {
     logger.error('Error uploading file:', error);
   }
 };
+
+async function uploadToS3(imageUrl, fileName) {
+  try {
+    logger.info(`Uploading ${imageUrl}`);
+    // Download the image
+    const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+    const buffer = Buffer.from(response.data, 'binary');
+
+    // Set up the S3 upload parameters
+    const params = {
+      Bucket: process.env.S3_BUCKET_NAME,
+      Key: fileName,
+      Body: buffer,
+      ContentType: 'image/png'
+    };
+
+    const command = new PutObjectCommand(params);
+    const result = await client.send(command);
+
+    logger.info(`File uploaded successfully. https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`);
+
+    return result;
+  } catch (error) {
+    console.error(`Error uploading ${imageUrl}: ${error.message}`);
+  }
+}
 
 async function saveImage(data) {
   const { hash_id, image } = data;
@@ -534,7 +572,7 @@ async function saveImage(data) {
 async function getLatestArticles() {
   // I do 48 hours to ensure all ids are considered
   const { rows } = await sql`
-    SELECT article_hash
+    SELECT article_hash, category, source_entity
     FROM articles
     WHERE publish_date >= NOW() - INTERVAL '48 hours';
   `;
@@ -612,6 +650,8 @@ export const handler = async () => {
     */
   const latestIds = await getLatestArticles();
 
+  logger.info(latestIds);
+
   const hashMap = Object.values(latestIds).reduce((map, article) => {
     map[article.article_hash] = article;
     return map;
@@ -632,7 +672,6 @@ export const handler = async () => {
 
   for (const bb1 of biobio_1) {
     try {
-      // Skip alredy processed article.
       if (hashMap[bb1.hash_id] !== undefined) continue;
       const bb1_data = await scrapeBioBioBody(browser, bb1);
       biobio_1_complete.push(bb1_data);
@@ -645,7 +684,6 @@ export const handler = async () => {
 
   for (const bb2 of biobio_2) {
     try {
-      // Skip alredy processed article.
       if (hashMap[bb2.hash_id] !== undefined) continue;
       const bb2_data = await scrapeBioBioBody(browser, bb2);
       biobio_2_complete.push(bb2_data);
@@ -684,6 +722,17 @@ export const handler = async () => {
     }
   }
 
+  // Upload Images to S3
+  logger.info(`Downloading Images to S3`);
+
+  for (const article of biobioarticles) {
+    try {
+      await uploadToS3(article.image, `s3_${article.hash_id}.png`);
+    } catch (e) {
+      logger.error(`Error while downloading image to s3`, e);
+    }
+  }
+
   // Save articles to vercel db
   /*for (var i = 0; i < biobioresult.length; i++) {
     try {
@@ -697,4 +746,26 @@ export const handler = async () => {
   await browser.close();
 }
 
-handler();
+const ShutdownInstance = async () => {
+  const command = new StopInstancesCommand({
+    InstanceIds: [process.env.INSTANCE_ID],
+  });
+
+  try {
+    const { StoppingInstances } = await awsClient.send(command);
+    const instanceIdList = StoppingInstances.map(
+      (instance) => ` • ${instance.InstanceId}`,
+    );
+    logger.info("Stopping instances:");
+    logger.info(instanceIdList.join("\n"));
+  } catch (err) {
+    logger.error(err);
+  }
+};
+
+handler()
+  .then(() => ShutdownInstance())
+  .catch((e) => {
+    logger.info(e);
+    ShutdownInstance();
+  });
