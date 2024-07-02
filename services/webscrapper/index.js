@@ -156,7 +156,7 @@ async function scrapeLaTerceraArticles(browser, target) {
   logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(target.url, { waitUntil: 'load', timeout: 0 });
+  await page.goto(target.url, { waitUntil: 'load', timeout: 10000 });
 
   logger.info(`Get last date from vercel`);
   var last_date = await getLastArticleDate(target.entity, target.category);
@@ -276,7 +276,7 @@ async function scrapeBioBioArticles(browser, target) {
   logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(target.url, { waitUntil: 'load', timeout: 0 });
+  await page.goto(target.url, { waitUntil: 'load', timeout: 10000 });
 
   logger.info(`Get last date from vercel`);
   var last_date = await getLastArticleDate(target.entity, target.category);
@@ -399,7 +399,7 @@ async function scrapeBioBioBody(browser, articleData) {
   // New page
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(articleData.link, { waitUntil: 'load', timeout: 0 });
+  await page.goto(articleData.link, { waitUntil: 'load', timeout: 10000 });
 
   const paragraphs = await page.$$eval('div > p', (ps) => {
     return ps.map(p => p.textContent);
