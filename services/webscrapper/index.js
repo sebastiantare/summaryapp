@@ -23,6 +23,8 @@ const awsClient = new EC2Client({ region: REGION });
 // Load .env
 config();
 
+const now = Date.now();
+
 // Configure S3 Client
 const client = new S3Client({});
 
@@ -156,7 +158,7 @@ async function scrapeLaTerceraArticles(browser, target) {
   logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(target.url, { waitUntil: 'load', timeout: 10000 });
+  await page.goto(target.url, { waitUntil: 'load', timeout: 30000 });
 
   logger.info(`Get last date from vercel`);
   var last_date = await getLastArticleDate(target.entity, target.category);
@@ -276,7 +278,7 @@ async function scrapeBioBioArticles(browser, target) {
   logger.info(`Starting on target: ${target.url}`);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(target.url, { waitUntil: 'load', timeout: 10000 });
+  await page.goto(target.url, { waitUntil: 'load', timeout: 30000 });
 
   logger.info(`Get last date from vercel`);
   var last_date = await getLastArticleDate(target.entity, target.category);
@@ -399,7 +401,7 @@ async function scrapeBioBioBody(browser, articleData) {
   // New page
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600 });
-  await page.goto(articleData.link, { waitUntil: 'load', timeout: 10000 });
+  await page.goto(articleData.link, { waitUntil: 'load', timeout: 30000 });
 
   const paragraphs = await page.$$eval('div > p', (ps) => {
     return ps.map(p => p.textContent);
@@ -756,6 +758,9 @@ export const handler = async () => {
 }
 
 const ShutdownInstance = async () => {
+  const end = Date.now();
+  logger.info(`Finished scraping after ${(end - start) / 1000} seconds`);
+
   const command = new StopInstancesCommand({
     InstanceIds: [process.env.INSTANCE_ID],
   });
