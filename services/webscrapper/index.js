@@ -73,30 +73,39 @@ async function initializeBrowser() {
     //}));
 
     // Local dev test
-    //const browser = await puppeteerExtra.launch({
-    //  headless: 'new',
-    //  devtools: true,
+    /*const browser = await puppeteerExtra.launch({
+      headless: 'new',
+      devtools: true,
+    });*
+
     //executablePath: "/home/stare/Downloads/chromedriver" //113.0.5672.63
     //executablePath: "/home/stare/.local/share/flatpak/app/com.google.Chrome/current/active/export/bin/com.google.Chrome"
-    //});
-
     //args: [...chromium.args, '--proxy-server=http://190.153.237.2:37453'],
 
-    // For aws
-    const browser = await puppeteerExtra.launch({
+    // For aws serverless
+    /*const browser = await puppeteerExtra.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
       ignoreHTTPSErrors: true
+    });*/
+
+    // For aws nonserverless
+    const browser = await puppeteerExtra.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: null,
+      executablePath: '/usr/bin/chromium-browser',
+      headless: true,
+      ignoreHTTPSErrors: true
     });
+
     return browser;
 
   } catch (error) {
     logger.info("Error with browser", error);
   }
 }
-
 
 function getLowestDate(dates) {
   // Initialize the lowest date with the first non-empty date or the current date
