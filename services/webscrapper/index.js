@@ -75,10 +75,10 @@ async function initializeBrowser() {
     //}));
 
     // Local dev test
-    /*const browser = await puppeteerExtra.launch({
+    const browser = await puppeteerExtra.launch({
       headless: 'new',
       devtools: true,
-    });*
+    });
 
     //executablePath: "/home/stare/Downloads/chromedriver" //113.0.5672.63
     //executablePath: "/home/stare/.local/share/flatpak/app/com.google.Chrome/current/active/export/bin/com.google.Chrome"
@@ -94,13 +94,13 @@ async function initializeBrowser() {
     });*/
 
     // For aws nonserverless
-    const browser = await puppeteerExtra.launch({
+    /*const browser = await puppeteerExtra.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       defaultViewport: null,
       executablePath: '/usr/bin/chromium-browser',
       headless: true,
       ignoreHTTPSErrors: true
-    });
+    });*/
 
     return browser;
 
@@ -661,8 +661,6 @@ export const handler = async () => {
     */
   const latestIds = await getLatestArticles();
 
-  logger.info(latestIds);
-
   const hashMap = Object.values(latestIds).reduce((map, article) => {
     map[article.article_hash] = article;
     return map;
@@ -759,7 +757,7 @@ export const handler = async () => {
 
 const ShutdownInstance = async () => {
   const end = Date.now();
-  logger.info(`Finished scraping after ${(end - start) / 1000} seconds`);
+  logger.info(`Finished scraping after ${(end - now) / 1000} seconds`);
 
   const command = new StopInstancesCommand({
     InstanceIds: [process.env.INSTANCE_ID],
